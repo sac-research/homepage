@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { getGlobalData } from '../utils/global-data'
 import Header from '../components/Header'
@@ -15,5 +15,5 @@ export default function Home({globalData}) {
 
 export function getStaticProps() {
   const globalData = getGlobalData()
-  return {props: {globalData}}
+  return {props: { globalData }}
 }

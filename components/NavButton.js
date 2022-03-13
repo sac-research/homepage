@@ -7,5 +7,5 @@ export default function NavButton({ navText, navTarget }) {
         router.push(navTarget)
     }
 
-    return <button onClick={handleNav} className="hover:bg-teal-500 text-white font-bold rounded p-2">{navText}</button>
+    return <button onClick={handleNav} className="hover:bg-teal-800 text-white p-2">{navText}</button>
 }

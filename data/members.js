@@ -18,11 +18,11 @@ function createMember(firstName, midName="", lastName, role, brief_intro, projec
 }
 
 const members = [
-    createMember()
+    createMember("Anh", "Hoang", "Nguyen", "Undergraduate Research Assistant", "I am a full-stack software developer with focus in DevOps and SRE with interests in cloud architectures, system designs, and applied machine learning.", "MLaaS Platform Benchmarking", "https://linkedin.com/in/aaanh", "https://hoanganh.dev", "", "undergraduate")
 ]
 
 
 
-export default function Members({ createMember } ) { 
+export default function dataMembers({ createMember } ) { 
     return members;
 }

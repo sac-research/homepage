@@ -10,7 +10,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true'/>
         </Head>
         <body
-          className={`antialiased text-lg bg-white dark:bg-gray-900 dark:text-white leading-base`}
+          className={`antialiased text-teal-600 text-lg bg-white leading-base`}
         >
           <Main />
           <NextScript />

@@ -28,10 +28,10 @@ export default function Members() {
                     </ul>
                 </div>
                 <div>
-                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[2px]">
+                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
                         <h1
                             id="faculty"
-                            className="text-4xl text-red-800 bg-white pt-2 pb-2"
+                            className="text-4xl text-red-800 bg-white pb-2"
                         >
                             Faculty Members
                         </h1>
@@ -79,15 +79,61 @@ export default function Members() {
                             ""
                         )
                     )}
-                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[2px]">
-                        <h1 className="text-4xl text-red-800 bg-white pt-2 pb-2">
+                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
+                        <h1
+                            id="graduates"
+                            className="text-4xl text-red-800 bg-white pb-2"
+                        >
                             Graduates
                         </h1>
                     </div>
-                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[2px]">
+                    {members.map((member, index) =>
+                        member.type === "graduate" ? (
+                            <div
+                                className="text-black flex justify-between mt-4 w-full p-4"
+                                key={index}
+                            >
+                                <div
+                                    id="member-photo"
+                                    style={{
+                                        backgroundImage:
+                                            "url('/members-photos/" +
+                                            member.photo +
+                                            "')",
+                                    }}
+                                    className={
+                                        "w-32 h-32 flex-none bg-center bg-cover rounded-full"
+                                    }
+                                ></div>
+                                <div className="ml-4">
+                                    <h2
+                                        id="member-name"
+                                        className="text-teal-700 font-bold"
+                                    >
+                                        {member.firstName +
+                                            " " +
+                                            member.midName +
+                                            " " +
+                                            member.lastName}
+                                    </h2>
+
+                                    <p id="member-role">{member.role}</p>
+                                    <p id="member-intro">
+                                        {member.brief_intro}
+                                    </p>
+                                    <p id="member-project">
+                                        Project: {member.project}
+                                    </p>
+                                </div>
+                            </div>
+                        ) : (
+                            ""
+                        )
+                    )}
+                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
                         <h1
                             id="undergraduates"
-                            className="text-4xl text-red-800 bg-white pt-2 pb-2"
+                            className="text-4xl text-red-800 bg-white pb-2"
                         >
                             Undergraduates
                         </h1>
@@ -136,22 +182,108 @@ export default function Members() {
                             ""
                         )
                     )}
-                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[2px]">
+                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
                         <h1
                             id="alumni"
-                            className="text-4xl text-red-800 bg-white pt-2 pb-2"
+                            className="text-4xl text-red-800 bg-white pb-2"
                         >
                             Alumni
                         </h1>
                     </div>
-                    <div
-                        id="visitors"
-                        className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[2px]"
-                    >
-                        <h1 className="text-4xl text-red-800 bg-white pt-2 pb-2">
+                    {members.map((member, index) =>
+                        member.type === "alumni" ? (
+                            <div
+                                className="text-black flex justify-between mt-4 w-full p-4"
+                                key={index}
+                            >
+                                <div
+                                    id="member-photo"
+                                    style={{
+                                        backgroundImage:
+                                            "url('/members-photos/" +
+                                            member.photo +
+                                            "')",
+                                    }}
+                                    className={
+                                        "w-32 h-32 flex-none bg-center bg-cover rounded-full"
+                                    }
+                                ></div>
+                                <div className="ml-4">
+                                    <h2
+                                        id="member-name"
+                                        className="text-teal-700 font-bold"
+                                    >
+                                        {member.firstName +
+                                            " " +
+                                            member.midName +
+                                            " " +
+                                            member.lastName}
+                                    </h2>
+
+                                    <p id="member-role">{member.role}</p>
+                                    <p id="member-intro">
+                                        {member.brief_intro}
+                                    </p>
+                                    <p id="member-project">
+                                        Project: {member.project}
+                                    </p>
+                                </div>
+                            </div>
+                        ) : (
+                            ""
+                        )
+                    )}
+                    <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
+                        <h1
+                            id="visitors"
+                            className="text-4xl text-red-800 bg-white pb-2"
+                        >
                             Visitors
                         </h1>
                     </div>
+                    {members.map((member, index) =>
+                        member.type === "visitor" ? (
+                            <div
+                                className="text-black flex justify-between mt-4 w-full p-4"
+                                key={index}
+                            >
+                                <div
+                                    id="member-photo"
+                                    style={{
+                                        backgroundImage:
+                                            "url('/members-photos/" +
+                                            member.photo +
+                                            "')",
+                                    }}
+                                    className={
+                                        "w-32 h-32 flex-none bg-center bg-cover rounded-full"
+                                    }
+                                ></div>
+                                <div className="ml-4">
+                                    <h2
+                                        id="member-name"
+                                        className="text-teal-700 font-bold"
+                                    >
+                                        {member.firstName +
+                                            " " +
+                                            member.midName +
+                                            " " +
+                                            member.lastName}
+                                    </h2>
+
+                                    <p id="member-role">{member.role}</p>
+                                    <p id="member-intro">
+                                        {member.brief_intro}
+                                    </p>
+                                    <p id="member-project">
+                                        Project: {member.project}
+                                    </p>
+                                </div>
+                            </div>
+                        ) : (
+                            ""
+                        )
+                    )}
                 </div>
             </div>
         </Layout>

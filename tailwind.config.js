@@ -1,12 +1,14 @@
 module.exports = {
-  mode: 'jit',
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
-  ],
-  theme: {
-    extend: {},
-  },
-  presets: [require('./utils/tailwind-preset')],
-  plugins: [],
-}
+    mode: "jit",
+    content: [
+        "./pages/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+        extend: {
+            backgroundImage: (theme) => ({}),
+        },
+    },
+    presets: [require("./utils/tailwind-preset")],
+    plugins: [],
+};

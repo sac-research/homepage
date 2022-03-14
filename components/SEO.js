@@ -1,13 +1,19 @@
-import Head from 'next/head';
+import Head from "next/head";
+import { getGlobalData } from "../utils/global-data";
 
-export default function SEO({ title, description, favicon }) {
-  return (
-    <Head>
-      <title>{title}</title>
-      <link rel="icon" href={favicon} type="image/x-icon"></link>
-      <meta name="description" content={description} />
-      <meta property="og:title" content={title} />
-      <meta property='og:image' content={favicon} />
-    </Head>
-  );
+export default function SEO({ title, description }) {
+    const globalData = getGlobalData();
+    return (
+        <Head>
+            <title>{title}</title>
+            <link
+                rel="icon"
+                href={globalData.favicon}
+                type="image/x-icon"
+            ></link>
+            <meta name="description" content={description} />
+            <meta property="og:title" content={title} />
+            <meta property="og:image" content={globalData.favicon} />
+        </Head>
+    );
 }

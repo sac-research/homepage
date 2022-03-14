@@ -1,3 +1,3 @@
 export default function Publications() {
-    return <div></div>
+    return <div></div>;
 }

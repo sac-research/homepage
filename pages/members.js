@@ -2,7 +2,7 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { members } from "../data/Members";
+import { members } from "../data/members";
 
 const customLink = (target) => {
     return (

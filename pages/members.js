@@ -39,7 +39,7 @@ export default function Members() {
                     {members.map((member, index) =>
                         member.type === "faculty" ? (
                             <div
-                                className="text-black flex justify-between mt-4 w-full p-4"
+                                className="text-black flex justify-start mt-4 w-full p-4"
                                 key={index}
                             >
                                 <div

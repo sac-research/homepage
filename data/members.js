@@ -56,7 +56,20 @@ export const members = [
         "https://linkedin.com/in/aaanh",
         "https://hoanganh.dev",
         "",
-        "undergraduate"
+        "alumni"
+    ),
+    createMember(
+        "",
+        "Anh",
+        "Hoang",
+        "Nguyen",
+        "Undergraduate Research Assistant",
+        "I am a full-stack software developer with focus in DevOps and SRE with interests in cloud architectures, system designs, and applied machine learning.",
+        "MLaaS Platform Benchmarking",
+        "https://linkedin.com/in/aaanh",
+        "https://hoanganh.dev",
+        "",
+        "graduate"
     ),
     createMember(
         "",
@@ -82,7 +95,7 @@ export const members = [
         "https://linkedin.com/in/aaanh",
         "https://hoanganh.dev",
         "",
-        "undergraduate"
+        "faculty"
     ),
     createMember(
         "",
@@ -95,7 +108,7 @@ export const members = [
         "https://linkedin.com/in/aaanh",
         "https://hoanganh.dev",
         "",
-        "undergraduate"
+        "visitor"
     ),
 ];
 

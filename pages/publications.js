@@ -2,6 +2,7 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { getGlobalData } from "../utils/global-data";
 import { useState } from "react";
+import { pubs } from "../data/publications";
 
 const pubsMapping = ({ pubs }) => {
     return pubs.map((pub, index) => (
@@ -11,11 +12,13 @@ const pubsMapping = ({ pubs }) => {
     ));
 };
 
-const topics = [];
+const topics = [...new Set(pubs.map((pub) => pub.topic))];
+const years = [...new Set(pubs.map((pub) => pub.year))];
 
 export default function Publications() {
     const globalData = getGlobalData();
-    const [progress, setProgress] = useState("active");
+    const [tp, setTopic] = useState("");
+    const [yr, setYear] = useState("");
 
     return (
         <Layout>
@@ -25,20 +28,36 @@ export default function Publications() {
                     "Research papers and results published by members of SAC group on various computer science topics."
                 }
             ></SEO>
-            <div className="flex mt-8">
-                <div>
-                    <div className="mr-4 pr-4">
-                        <ul>
-                            <li>Sort by topic</li>
-                            <li>Completed</li>
-                            <li>Prospective</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="">
-                    <h1 className="capitalize ml-8 text-4xl text-red-800 bg-white pb-2">
-                        {progress + " projects"}
-                    </h1>
+            <div className="flex mt-8 ml-4">
+                <div className="flex flex-col">
+                    <h3>Sort by topic:</h3>
+                    <ul>
+                        {topics.map((topic, index) => (
+                            <li>
+                                <button
+                                    key={index}
+                                    onClick={(e) => {
+                                        e.preventDefault;
+                                        setTopic(topic);
+                                    }}
+                                ></button>
+                            </li>
+                        ))}
+                    </ul>
+                    <h3>Sort by year:</h3>
+                    <ul>
+                        {years.map((year, index) => (
+                            <li>
+                                <button
+                                    key={index}
+                                    onClick={(e) => {
+                                        e.preventDefault;
+                                        setYear(year);
+                                    }}
+                                ></button>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </Layout>

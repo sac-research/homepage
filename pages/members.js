@@ -114,7 +114,7 @@ export default function Members() {
     return (
         <Layout>
             <SEO title="SAC - Members"></SEO>
-            <div className="flex mt-8">
+            <div className="flex mt-8 ml-4">
                 <div className="mr-4 pr-4">
                     <ul>
                         <li>{customLink("Faculty")}</li>

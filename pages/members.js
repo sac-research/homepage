@@ -25,12 +25,23 @@ function memberMapping(memberType) {
                 ></div>
 
                 <div className="ml-4">
-                    <h2 id="member-name" className="text-teal-700 font-bold">
+                    <h2 id="member-name" className="text-teal-700 font-bold text-2xl">
                         {member.firstName + " " + member.midName + " " + member.lastName}
                     </h2>
                     <p id="member-role">{member.role}</p>
-                    <div>{member.brief_intro}</div>
-                    <p id="member-project">Project: {member.project}</p>
+                    <div className="list-disc">{member.brief_intro}</div>
+                    <div>
+                        {member.project !== "" ? (
+                            <>
+                                <h3 id="member-project" className="font-bold text-teal-700">
+                                    Project
+                                </h3>
+                                <p>{member.project}</p>
+                            </>
+                        ) : (
+                            ""
+                        )}
+                    </div>
                 </div>
             </div>
         ) : (

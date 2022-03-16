@@ -22,8 +22,8 @@ function createMember({
     midName = "",
     lastName,
     role,
-    brief_intro = "BRIEF_INTRO PLACEHOLDER",
-    project,
+    brief_intro,
+    project = "",
     social,
     homepage = "",
     scholarPage = "",
@@ -46,6 +46,26 @@ function createMember({
         photo,
     };
 }
+
+const professorIntroduction = (
+    <>
+        <h3 className="text-teal-700 font-bold list-disc">Research Areas</h3>
+        <ul className="list-disc list-inside">
+            <li>
+                Distributed Computing: Middleware; Cloud Computing; Distributed Architectures;
+                Performance Modeling, Analysis and Evaluation; Service-oriented Computing
+            </li>
+            <li>
+                Software Engineering: Software Architecture; Model Driven Development; Embeded, and
+                Cyber-physical systems
+            </li>
+            <li>
+                Web-Enabled Applications and Services: eScience; Scientific Workflow; Business
+                Processes
+            </li>
+        </ul>
+    </>
+);
 
 export const members = [
     createMember({
@@ -72,28 +92,6 @@ export const members = [
         type: "undergraduate",
     }),
 ];
-
-const professorIntroduction = () => {
-    return (
-        <div>
-            <h3 className="text-2xl">Research Areas</h3>
-            <ul>
-                <li>
-                    Distributed Computing : Middleware; Cloud Computing; Distributed Architectures;
-                    Performance Modeling, Analysis and Evaluation; Service oriented Computing
-                </li>
-                <li>
-                    Software Engineering : Software Architecture; Model Driven Development ;
-                    Embeded, and Cyber-physical systems
-                </li>
-                <li>
-                    Web-Enabled Applications and Services : eScience; Scientific Workflow; Business
-                    Processes
-                </li>
-            </ul>
-        </div>
-    );
-};
 
 export default function dataMembers() {
     return members;

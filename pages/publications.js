@@ -33,9 +33,8 @@ export default function Publications() {
                     <h3>Sort by topic:</h3>
                     <ul>
                         {topics.map((topic, index) => (
-                            <li>
+                            <li key={index}>
                                 <button
-                                    key={index}
                                     onClick={(e) => {
                                         e.preventDefault;
                                         setTopic(topic);
@@ -47,7 +46,7 @@ export default function Publications() {
                     <h3>Sort by year:</h3>
                     <ul>
                         {years.map((year, index) => (
-                            <li>
+                            <li key={index}>
                                 <button
                                     key={index}
                                     onClick={(e) => {

@@ -1,9 +1,12 @@
 import React from "react";
+import Header from "./Header";
+import Nav from "./Nav";
 
 export default function Layout({ children }) {
     return (
-        <div className="relative pt-6 pb-24 overflow-hidden">
-            <div className="flex border-solid border-1 border-sky-500 flex-col max-w-7xl w-full mx-auto">
+        <div className="relative pb-24 overflow-hidden">
+            <Header></Header>
+            <div className="flex border-solid border-1 border-sky-500 flex-col mx-4 w-full mx-auto">
                 {children}
             </div>
         </div>

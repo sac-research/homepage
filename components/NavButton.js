@@ -11,7 +11,7 @@ export default function NavButton({ navText, navTarget }) {
         <button
             onClick={handleNav}
             className={
-                "hover:bg-teal-800 text-white p-2 transition-all" +
+                "hover:bg-teal-800 text-slate-100 p-2 transition-all font-normal" +
                 " " +
                 (router.asPath === navTarget && router.asPath !== "/"
                     ? "bg-teal-800"

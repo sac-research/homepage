@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Header from "../components/Header";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { members } from "../data/members";
@@ -112,9 +111,8 @@ export default function Members() {
     return (
         <Layout>
             <SEO title="SAC - Members"></SEO>
-            <Header></Header>
             <div className="flex mt-8">
-                <div className="pr-8">
+                <div className="mr-4 pr-4">
                     <ul>
                         <li>{customLink("Faculty")}</li>
                         <li>{customLink("Graduates")}</li>
@@ -123,7 +121,7 @@ export default function Members() {
                         <li>{customLink("Visitors")}</li>
                     </ul>
                 </div>
-                <div>
+                <div className="flex-initial">
                     <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
                         <h1
                             id="faculty"

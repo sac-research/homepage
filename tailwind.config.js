@@ -9,6 +9,11 @@ module.exports = {
         extend: {
             backgroundImage: (theme) => ({}),
         },
+        fontFamily: {
+            display: ["Inter"],
+            body: ["Inter"],
+            sans: ["Inter"],
+        },
     },
     presets: [require("./utils/tailwind-preset")],
     plugins: [],

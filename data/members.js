@@ -52,16 +52,17 @@ const professorIntroduction = (
         <h3 className="text-teal-700 font-bold list-disc">Research Areas</h3>
         <ul className="list-disc list-inside">
             <li>
-                Distributed Computing: Middleware; Cloud Computing; Distributed Architectures;
-                Performance Modeling, Analysis and Evaluation; Service-oriented Computing
+                Distributed Computing: Middleware; Cloud Computing; Distributed
+                Architectures; Performance Modeling, Analysis and Evaluation;
+                Service-oriented Computing
             </li>
             <li>
-                Software Engineering: Software Architecture; Model Driven Development; Embeded, and
-                Cyber-physical systems
+                Software Engineering: Software Architecture; Model Driven
+                Development; Embeded, and Cyber-physical systems
             </li>
             <li>
-                Web-Enabled Applications and Services: eScience; Scientific Workflow; Business
-                Processes
+                Web-Enabled Applications and Services: eScience; Scientific
+                Workflow; Business Processes
             </li>
         </ul>
     </>
@@ -86,7 +87,7 @@ export const members = [
         role: "Undergraduate Research Assistant",
         brief_intro:
             "I am a full-stack software developer with focus in DevOps and SRE with interests in cloud architectures, system designs, and applied machine learning.",
-        project: "MLaaS Platform Benchmarking",
+        project: ["MLaaS Platform Benchmarking", "MLaaS Platform Benchmarking"],
         social: "https://linkedin.com/in/aaanh",
         homepage: "https://hoanganh.dev",
         type: "undergraduate",

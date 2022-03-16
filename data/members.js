@@ -18,16 +18,16 @@
 function createMember({
     key = 0,
     honorific = "",
-    firstName,
+    firstName = "",
     midName = "",
-    lastName,
-    role,
-    brief_intro,
+    lastName = "",
+    role = "",
+    brief_intro = "",
     project = "",
-    social,
+    social = "",
     homepage = "",
     scholarPage = "",
-    type,
+    type = "",
     photo = "placeholder.jpg",
 } = {}) {
     return {

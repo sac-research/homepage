@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const pubsMapping = ({ pubs }) => {
     return pubs.map((pub, index) => (
-        <div>
+        <div key={index}>
             <h2 className="text-lg text-teal-500">{pub.title}</h2>
         </div>
     ));

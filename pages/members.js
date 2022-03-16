@@ -79,8 +79,11 @@ function memberMapping(memberType) {
                                     Projects
                                 </h3>
                                 <ul>
-                                    {member.project.map((proj) => (
-                                        <li className="list-disc list-inside">
+                                    {member.project.map((proj, index) => (
+                                        <li
+                                            key={index}
+                                            className="list-disc list-inside"
+                                        >
                                             {proj}
                                         </li>
                                     ))}

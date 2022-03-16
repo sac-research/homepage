@@ -6,10 +6,7 @@ import Header from "../components/Header";
 export default function Home({ globalData }) {
     return (
         <Layout>
-            <SEO
-                title={globalData.siteName}
-                description={globalData.description}
-            ></SEO>
+            <SEO title={globalData.siteName} description={globalData.description}></SEO>
             <Header></Header>
         </Layout>
     );

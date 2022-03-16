@@ -54,27 +54,46 @@ export const members = [
         firstName: "Yan",
         midName: "",
         lastName: "Liu",
+        brief_intro: professorIntroduction,
         role: "Associate Professor and Research Lead",
-
         homepage: "https://users.encs.concordia.ca/~liu",
-
         type: "faculty",
     }),
-    createMember(
-        "",
-        "",
-        "Anh",
-        "Hoang",
-        "Nguyen",
-        "Undergraduate Research Assistant",
-        "I am a full-stack software developer with focus in DevOps and SRE with interests in cloud architectures, system designs, and applied machine learning.",
-        "MLaaS Platform Benchmarking",
-        "https://linkedin.com/in/aaanh",
-        "https://hoanganh.dev",
-        "",
-        "undergraduate"
-    ),
+    createMember({
+        firstName: "Anh",
+        midName: "Hoang",
+        lastName: "Nguyen",
+        role: "Undergraduate Research Assistant",
+        brief_intro:
+            "I am a full-stack software developer with focus in DevOps and SRE with interests in cloud architectures, system designs, and applied machine learning.",
+        project: "MLaaS Platform Benchmarking",
+        social: "https://linkedin.com/in/aaanh",
+        homepage: "https://hoanganh.dev",
+        type: "undergraduate",
+    }),
 ];
+
+const professorIntroduction = () => {
+    return (
+        <div>
+            <h3 className="text-2xl">Research Areas</h3>
+            <ul>
+                <li>
+                    Distributed Computing : Middleware; Cloud Computing; Distributed Architectures;
+                    Performance Modeling, Analysis and Evaluation; Service oriented Computing
+                </li>
+                <li>
+                    Software Engineering : Software Architecture; Model Driven Development ;
+                    Embeded, and Cyber-physical systems
+                </li>
+                <li>
+                    Web-Enabled Applications and Services : eScience; Scientific Workflow; Business
+                    Processes
+                </li>
+            </ul>
+        </div>
+    );
+};
 
 export default function dataMembers() {
     return members;

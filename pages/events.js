@@ -7,10 +7,7 @@ export default function Events() {
     const globalData = getGlobalData();
     return (
         <Layout>
-            <SEO
-                title={globalData.siteName}
-                description={globalData.description}
-            ></SEO>
+            <SEO title={globalData.siteName} description={globalData.description}></SEO>
             <Header></Header>
         </Layout>
     );

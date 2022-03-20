@@ -39,26 +39,17 @@ const LinkedInButton = ({ target }) => {
 function memberMapping(memberType) {
     return members.map((member, index) =>
         member.type == memberType ? (
-            <div
-                className="text-black flex justify-start mt-4 w-full p-4"
-                key={index}
-            >
+            <div className="text-black flex justify-start mt-4 w-full p-4" key={index}>
                 <div
                     id="member-photo"
                     style={{
-                        backgroundImage:
-                            "url('/members-photos/" + member.photo + "')",
+                        backgroundImage: "url('/members-photos/" + member.photo + "')",
                     }}
-                    className={
-                        "w-32 h-32 flex-none bg-center bg-cover rounded-full"
-                    }
+                    className={"w-32 h-32 flex-none bg-center bg-cover rounded-full"}
                 ></div>
 
                 <div className="ml-4">
-                    <h2
-                        id="member-name"
-                        className="text-teal-700 font-bold text-2xl"
-                    >
+                    <h2 id="member-name" className="text-teal-700 font-bold text-2xl">
                         {member.honorific +
                             " " +
                             member.firstName +
@@ -72,18 +63,12 @@ function memberMapping(memberType) {
                     <div>
                         {member.project !== "" ? (
                             <>
-                                <h3
-                                    id="member-project"
-                                    className="font-bold text-teal-700"
-                                >
+                                <h3 id="member-project" className="font-bold text-teal-700">
                                     Projects
                                 </h3>
                                 <ul>
                                     {member.project.map((proj, index) => (
-                                        <li
-                                            key={index}
-                                            className="list-disc list-inside"
-                                        >
+                                        <li key={index} className="list-disc list-inside">
                                             {proj}
                                         </li>
                                     ))}
@@ -95,9 +80,7 @@ function memberMapping(memberType) {
                     </div>
                     {member.social !== "" ? (
                         <div className="my-2">
-                            <LinkedInButton
-                                target={member.social}
-                            ></LinkedInButton>
+                            <LinkedInButton target={member.social}></LinkedInButton>
                         </div>
                     ) : (
                         ""
@@ -126,46 +109,31 @@ export default function Members() {
                 </div>
                 <div className="flex-initial">
                     <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
-                        <h1
-                            id="faculty"
-                            className="text-4xl text-red-800 bg-white pb-2"
-                        >
+                        <h1 id="faculty" className="text-4xl text-red-800 bg-white pb-2">
                             Faculty Members
                         </h1>
                     </div>
                     {memberMapping("faculty")}
                     <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
-                        <h1
-                            id="graduates"
-                            className="text-4xl text-red-800 bg-white pb-2"
-                        >
+                        <h1 id="graduates" className="text-4xl text-red-800 bg-white pb-2">
                             Graduates
                         </h1>
                     </div>
                     {memberMapping("graduate")}
                     <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
-                        <h1
-                            id="undergraduates"
-                            className="text-4xl text-red-800 bg-white pb-2"
-                        >
+                        <h1 id="undergraduates" className="text-4xl text-red-800 bg-white pb-2">
                             Undergraduates
                         </h1>
                     </div>
                     {memberMapping("undergraduate")}
                     <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
-                        <h1
-                            id="alumni"
-                            className="text-4xl text-red-800 bg-white pb-2"
-                        >
+                        <h1 id="alumni" className="text-4xl text-red-800 bg-white pb-2">
                             Alumni
                         </h1>
                     </div>
                     {memberMapping("alumni")}
                     <div className="bg-gradient-to-r from-rose-500 to-cyan-500 pb-[1px]">
-                        <h1
-                            id="visitors"
-                            className="text-4xl text-red-800 bg-white pb-2"
-                        >
+                        <h1 id="visitors" className="text-4xl text-red-800 bg-white pb-2">
                             Visitors
                         </h1>
                     </div>

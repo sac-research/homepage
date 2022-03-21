@@ -22,7 +22,7 @@ const LinkedInButton = ({ target }) => {
             aria-label={"Open LinkedIn " + target}
             className="flex font-semibold justify-center items-center hover:text-sky-700 transition-all text-2xl mx-2 my-2"
         >
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-linkedin"></i>
         </button>
     );
 };
@@ -38,7 +38,7 @@ const GoogleScholarButton = ({ target }) => {
             aria-label={"To Google Scholar " + target}
             className="flex font-semibold justify-center items-center hover:text-red-500 transition-all text-2xl mx-2 my-2"
         >
-            <i class="fa-brands fa-google"></i>&nbsp;Scholar
+            <i className="fa-brands fa-google"></i>&nbsp;Scholar
         </button>
     );
 };
@@ -54,7 +54,7 @@ const HomepageButton = ({ target }) => {
             aria-label={"To member's homepage " + target}
             className="flex font-semibold justify-center items-center hover:text-green-500 transition-all text-2xl mx-2 my-2"
         >
-            <i class="fa-solid fa-globe"></i>
+            <i className="fa-solid fa-globe"></i>
         </button>
     );
 };

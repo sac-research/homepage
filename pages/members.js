@@ -3,6 +3,11 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { members } from "../data/members";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+
 const customLink = (target) => {
     return (
         <Link href={"#" + target.toLowerCase()}>
@@ -22,7 +27,7 @@ const LinkedInButton = ({ target }) => {
             aria-label={"Open LinkedIn " + target}
             className="flex font-semibold justify-center items-center hover:text-sky-700 transition-all text-2xl mx-2 my-2"
         >
-            <i className="fa-brands fa-linkedin"></i>
+            <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
         </button>
     );
 };
@@ -38,7 +43,7 @@ const GoogleScholarButton = ({ target }) => {
             aria-label={"To Google Scholar " + target}
             className="flex font-semibold justify-center items-center hover:text-red-500 transition-all text-2xl mx-2 my-2"
         >
-            <i className="fa-brands fa-google"></i>&nbsp;Scholar
+            <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
         </button>
     );
 };
@@ -54,7 +59,7 @@ const HomepageButton = ({ target }) => {
             aria-label={"To member's homepage " + target}
             className="flex font-semibold justify-center items-center hover:text-green-500 transition-all text-2xl mx-2 my-2"
         >
-            <i className="fa-solid fa-globe"></i>
+            <FontAwesomeIcon icon={faGlobe}></FontAwesomeIcon>
         </button>
     );
 };
@@ -71,7 +76,7 @@ function memberMapping(memberType) {
                         }}
                         className={"w-32 h-32 flex-none bg-center bg-cover rounded-full"}
                     ></div>
-                    <div className="flex my-2 flex-wrap">
+                    <div className="flex my-2 flex-wrap justify-center">
                         {member.social !== "" ? (
                             <LinkedInButton target={member.social}></LinkedInButton>
                         ) : (
@@ -133,7 +138,7 @@ function memberMapping(memberType) {
 export default function Members() {
     return (
         <Layout>
-            <SEO title="SAC - Members"></SEO>
+            <SEO title="SAC | Members"></SEO>
             <div className="flex mt-8 ml-4">
                 <div className="mr-4 pr-4">
                     <ul>

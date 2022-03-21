@@ -23,7 +23,7 @@ export default function Publications() {
     return (
         <Layout>
             <SEO
-                title={"SAC - Publications"}
+                title={"SAC | Publications"}
                 description={
                     "Research papers and results published by members of SAC group on various computer science topics."
                 }

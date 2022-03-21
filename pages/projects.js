@@ -5,10 +5,7 @@ export default function Projects() {
     let globalData = getGlobalData();
     return (
         <div>
-            <SEO
-                title={globalData.siteName}
-                description={globalData.description}
-            ></SEO>
+            <SEO title="SAC | Projects" description={globalData.description}></SEO>
         </div>
     );
 }

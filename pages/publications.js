@@ -4,7 +4,16 @@ import { getGlobalData } from "../utils/global-data";
 import { useState } from "react";
 import { pubs } from "../data/publications";
 
-const pubsMapping = ({ pubs }) => {
+const topicsMapping = (topic) => {
+    return (
+        <>
+            <h1>{topic}</h1>
+            {pubs.map((pub, index) => (pub.topic === topic ? <></> : ""))}
+        </>
+    );
+};
+
+const pubsMapping = () => {
     return pubs.map((pub, index) => (
         <div key={index}>
             <h2 className="text-lg text-teal-500">{pub.title}</h2>
@@ -13,6 +22,7 @@ const pubsMapping = ({ pubs }) => {
 };
 
 const topics = [...new Set(pubs.map((pub) => pub.topic))];
+const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
 const years = [...new Set(pubs.map((pub) => pub.year))];
 
 export default function Publications() {

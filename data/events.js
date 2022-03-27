@@ -26,5 +26,7 @@ export const events = [
         date: "April 3",
         year: "2014",
     }),
-    createEvent(),
+    createEvent({
+        title: "",
+    }),
 ];

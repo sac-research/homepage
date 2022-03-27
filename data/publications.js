@@ -55,7 +55,20 @@ export const pubs = [
         conference:
             "accepted by 11th IEEE International Conference on Services Computing (IEEE SCC 2014)",
         pub_loc: "Anchorage, Alaska, USA",
+        pub_date: "",
         pub_month: "June",
+        pub_year: 2014,
+    }),
+    createPublication({
+        authors: ["Xing Wu", "Yan Liu"],
+        topic: "Middleware and Platforms",
+        subtopic: "Streaming Processing Middleware",
+        title: "Enabling A Load Adaptive Distributed Stream Processing Platform on Synchronized Clusters",
+        conference:
+            "accepted by IEEE International Workshop on the Future of PaaS 2014 Part of the IEEE IC2E Conferenceaccepted by 11th IEEE International Conference on Services Computing (IEEE SCC 2014)",
+        pub_loc: "Boston, MA, USA",
+        pub_date: "",
+        pub_month: "March",
         pub_year: 2014,
     }),
 ];

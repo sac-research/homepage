@@ -58,7 +58,4 @@ export const events = [
         date: "Dec 12th",
         year: 2013,
     }),
-    createEvent({
-        title: "",
-    }),
 ];

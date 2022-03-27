@@ -5,8 +5,15 @@ import { events } from "../data/events";
 
 function eventsMapping() {
     return events.map((event, index) => (
-        <div key={index}>
-            <h2 className="text-2xl">{event.title}</h2>
+        <div className="max-w-6xl my-2" key={index}>
+            <h2 className="text-2xl mb-2">
+                {event.date}, {event.year} | {event.title}
+            </h2>
+            {event.description.map((d, index) => (
+                <p className="text-black" key={index}>
+                    {index == 1 ? <>&emsp; {d}</> : d}
+                </p>
+            ))}
         </div>
     ));
 }
@@ -16,7 +23,9 @@ export default function Events() {
     return (
         <Layout>
             <SEO title="SAC | Events" description={globalData.description}></SEO>
-            {eventsMapping()}
+            <div className="flex flex-col mt-8 mx-4 justify-center items-center">
+                {eventsMapping()}
+            </div>
         </Layout>
     );
 }

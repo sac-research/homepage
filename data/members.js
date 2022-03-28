@@ -78,6 +78,7 @@ export const members = [
         role: "Associate Professor and Research Lead",
         homepage: "https://users.encs.concordia.ca/~liu",
         type: "faculty",
+        photo: "yanliu.png",
         scholarPage:
             "https://scholar.google.ca/citations?sortby=pubdate&hl=en&user=7yrUAMsAAAAJ&view_op=list_works",
     }),
@@ -102,6 +103,7 @@ export const members = [
             "Her project is about designing and validate the optimization model for auto-scaling mechanism in heterogeneous Data centers. Her PhD research will address the key questions in model-driven approach in virtual resource migration and auto-scaling in heterogeneous data centers. ",
         ],
         type: "alumni",
+        photo: "haniehalipour.jpeg",
     }),
     createMember({
         firstName: "Gangha",
@@ -136,6 +138,7 @@ export const members = [
         project: ["REST-based Interactive Visualization Software Framework Design"],
         homepage: "",
         scholarPage: "",
+        photo: "yaweizhang.jpg",
     }),
     createMember({
         key: "",
@@ -161,7 +164,7 @@ export const members = [
         brief_intro:
             "Rabih G. El-Zahr is Computer Engineering student at Concordia University. He’s also a web developer who specializes in front-end development (JavaScript, HTML5, CSS3) and founder of Scorpion Shade. During his free time Rabih spends his time improving his programming skills by learning new programming languages. Rabih’s next goal is to get into the world of mobile application development. ",
         type: "alumni",
-        photo: "",
+        photo: "rabih.jpeg",
     }),
     createMember({
         key: "",
@@ -174,7 +177,7 @@ export const members = [
             "Ryan Held is a computer engineering undergraduate student at Concordia University and will graduate in June 2014. He has been involved with numerous academic projects including the development of a student scheduling software and a robot battle competition, where his team won second place. He was also a member of the capstone team that demonstrated OpenSAF's cluster error handling process using a game, which was supervised by Dr. Liu, Dr. Toeroe and Dr. Khendek. ",
         type: "alumni",
 
-        photo: "",
+        photo: "ryanheld.jpeg",
     }),
     createMember({
         key: "",
@@ -186,7 +189,7 @@ export const members = [
         brief_intro:
             "Astou Sene is a student in Computer Engineering at Concordia University, graduating in 2014. Astou has acquired several progamming skills and has implemented different types of applications at Concordia. She has work experience in mobile application development and software testing. She is a member of the Capstone team that worked on the project which aimed to visibly demonstrate the error handling mechanisms of OpenSAF through the control of a game. ",
         type: "alumni",
-        photo: "",
+        photo: "astousene.jpeg",
     }),
     createMember({
         key: "",

@@ -4,6 +4,10 @@ import { getGlobalData } from "../utils/global-data";
 import { useState } from "react";
 import { pubs } from "../data/publications";
 
+const topics = [...new Set(pubs.map((pub) => pub.topic))];
+const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
+const years = [...new Set(pubs.map((pub) => pub.pub_year))];
+
 const topicsMapping = (topic) => {
     return (
         <>
@@ -21,14 +25,66 @@ const pubsMapping = () => {
     ));
 };
 
-const topics = [...new Set(pubs.map((pub) => pub.topic))];
-const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
-const years = [...new Set(pubs.map((pub) => pub.year))];
+const Sidebar = ({ topics, years }) => {
+    const [tp, setTopic] = useState("");
+    const [yr, setYear] = useState("");
+    return (
+        <>
+            <h3>Sort by topic:</h3>
+            <ul>
+                {topics.map((topic, index) => (
+                    <li key={index}>
+                        <button
+                            className="text-slate-800 hover:underline underline-offset-2"
+                            onClick={(e) => {
+                                e.preventDefault;
+                                setTopic(topic);
+                            }}
+                        >
+                            {topic}
+                        </button>
+                    </li>
+                ))}
+            </ul>
+            <h3>Sort by year:</h3>
+            <ul>
+                {years.map((year, index) =>
+                    year === 0 || year === "" ? (
+                        ""
+                    ) : (
+                        <li key={index}>
+                            <button
+                                className="text-slate-800 hover:underline underline-offset-2"
+                                key={index}
+                                onClick={(e) => {
+                                    e.preventDefault;
+                                    setYear(year);
+                                }}
+                            >
+                                {year}
+                            </button>
+                        </li>
+                    )
+                )}
+            </ul>
+            <h3>
+                <button
+                    className="hover:underline underline-offset-2"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setTopic("");
+                        setYear("");
+                    }}
+                >
+                    Reset sort/filter
+                </button>
+            </h3>
+        </>
+    );
+};
 
 export default function Publications() {
     const globalData = getGlobalData();
-    const [tp, setTopic] = useState("");
-    const [yr, setYear] = useState("");
 
     return (
         <Layout>
@@ -40,33 +96,7 @@ export default function Publications() {
             ></SEO>
             <div className="flex mt-8 ml-4">
                 <div className="flex flex-col">
-                    <h3>Sort by topic:</h3>
-                    <ul>
-                        {topics.map((topic, index) => (
-                            <li key={index}>
-                                <button
-                                    onClick={(e) => {
-                                        e.preventDefault;
-                                        setTopic(topic);
-                                    }}
-                                ></button>
-                            </li>
-                        ))}
-                    </ul>
-                    <h3>Sort by year:</h3>
-                    <ul>
-                        {years.map((year, index) => (
-                            <li key={index}>
-                                <button
-                                    key={index}
-                                    onClick={(e) => {
-                                        e.preventDefault;
-                                        setYear(year);
-                                    }}
-                                ></button>
-                            </li>
-                        ))}
-                    </ul>
+                    <Sidebar topics={topics} years={years}></Sidebar>
                 </div>
             </div>
         </Layout>

@@ -147,9 +147,9 @@ export const pubs = [
     }),
     createPublication({
         authors: ["Agarwal, K.", "Sharma, P.", "Ma, J.", "Lo, C.", "Gorton, I.", "Liu, Y."],
-        topic: "Model and Analysis",
+        topic: "Modeling and Analysis",
         subtopic: "Simulation Method and Tool",
-        title: "EVEAL: An Extensible Reduced Order Model Builder for Simulation and Modeling",
+        title: "REVEAL: An Extensible Reduced Order Model Builder for Simulation and Modeling",
         journal: "IEEE Computing in Science & Engineering , vol.PP, no.99, pp.1-10",
         doi: "10.1109/MCSE.2013.46",
     }),

@@ -8,37 +8,75 @@ const topics = [...new Set(pubs.map((pub) => pub.topic))];
 const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
 const years = [...new Set(pubs.map((pub) => pub.pub_year))];
 
-const topicsMapping = (topic) => {
+const SubtopicsMapping = ({ subtopics, subtopic, topic }) => {
     return (
-        <>
-            <h1>{topic}</h1>
-            {pubs.map((pub, index) => (pub.topic === topic ? <></> : ""))}
-        </>
+        <div className="flex flex-col">
+            {subtopics.map((st, index) =>
+                st === subtopic ? (
+                    <div>
+                        <h2 className="text-xl" key={index}>
+                            {st}
+                        </h2>
+                    </div>
+                ) : (
+                    ""
+                )
+            )}
+        </div>
     );
 };
 
-const pubsMapping = () => {
-    return pubs.map((pub, index) => (
-        <div key={index}>
-            <h2 className="text-lg text-teal-500">{pub.title}</h2>
+const TopicsMapping = ({ topics, subtopics, topic, entries }) => {
+    return (
+        <div className="flex flex-col">
+            {topics.map((t, index) => {
+                return subtopics.map((st, index) => {
+                    return entries.map((entry, index) => {
+                        return (
+                            <>
+                                {entry.topic === t &&
+                                entry.subtopic === st &&
+                                (entry.topic === "" || entry.subtopic === "") ? (
+                                    <div key={index}>
+                                        <h3>{entry.title}</h3>
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
+                            </>
+                        );
+                    });
+                });
+            })}
+
+            {/* {topics.map((t, index) =>
+                t === topic || topic === "" ? (
+                    <div>
+                        <h1 className="text-3xl" key={index}>
+                            {t}
+                        </h1>
+                        <SubtopicsMapping subtopics={subtopics}></SubtopicsMapping>
+                    </div>
+                ) : (
+                    ""
+                )
+            )} */}
         </div>
-    ));
+    );
 };
 
-const Sidebar = ({ topics, years }) => {
-    const [tp, setTopic] = useState("");
-    const [yr, setYear] = useState("");
+const Sidebar = ({ props, topics, years, topicCallback, yearCallback }) => {
     return (
         <>
-            <h3>Sort by topic:</h3>
+            <h3 className="font-bold">Sort by topic:</h3>
             <ul>
                 {topics.map((topic, index) => (
                     <li key={index}>
                         <button
-                            className="text-slate-800 hover:underline underline-offset-2"
+                            className="text-teal-600 hover:underline underline-offset-2"
                             onClick={(e) => {
                                 e.preventDefault;
-                                setTopic(topic);
+                                topicCallback(topic);
                             }}
                         >
                             {topic}
@@ -46,7 +84,7 @@ const Sidebar = ({ topics, years }) => {
                     </li>
                 ))}
             </ul>
-            <h3>Sort by year:</h3>
+            <h3 className="font-bold">Sort by year:</h3>
             <ul>
                 {years.map((year, index) =>
                     year === 0 || year === "" ? (
@@ -54,11 +92,11 @@ const Sidebar = ({ topics, years }) => {
                     ) : (
                         <li key={index}>
                             <button
-                                className="text-slate-800 hover:underline underline-offset-2"
+                                className="text-teal-600 hover:underline underline-offset-2"
                                 key={index}
                                 onClick={(e) => {
                                     e.preventDefault;
-                                    setYear(year);
+                                    yearCallback(year);
                                 }}
                             >
                                 {year}
@@ -69,11 +107,11 @@ const Sidebar = ({ topics, years }) => {
             </ul>
             <h3>
                 <button
-                    className="hover:underline underline-offset-2"
+                    className="hover:underline underline-offset-2 font-bold"
                     onClick={(e) => {
                         e.preventDefault();
-                        setTopic("");
-                        setYear("");
+                        topicCallback("");
+                        yearCallback("");
                     }}
                 >
                     Reset sort/filter
@@ -86,6 +124,9 @@ const Sidebar = ({ topics, years }) => {
 export default function Publications() {
     const globalData = getGlobalData();
 
+    const [tp, setTopic] = useState();
+    const [yr, setYear] = useState();
+
     return (
         <Layout>
             <SEO
@@ -94,10 +135,22 @@ export default function Publications() {
                     "Research papers and results published by members of SAC group on various computer science topics."
                 }
             ></SEO>
-            <div className="flex mt-8 ml-4">
-                <div className="flex flex-col">
-                    <Sidebar topics={topics} years={years}></Sidebar>
+            <div className="flex mt-8 ml-4 space-x-8">
+                <div className="flex flex-col text-sm">
+                    <Sidebar
+                        topics={topics}
+                        years={years}
+                        topicCallback={setTopic}
+                        yearCallback={setYear}
+                    ></Sidebar>
                 </div>
+                <TopicsMapping
+                    entries={pubs}
+                    props={(tp, yr)}
+                    topics={topics}
+                    topic={tp}
+                    subtopics={subtopics}
+                ></TopicsMapping>
             </div>
         </Layout>
     );

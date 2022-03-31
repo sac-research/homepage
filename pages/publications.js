@@ -8,64 +8,39 @@ const topics = [...new Set(pubs.map((pub) => pub.topic))];
 const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
 const years = [...new Set(pubs.map((pub) => pub.pub_year))];
 
-const SubtopicsMapping = ({ subtopics, subtopic, topic }) => {
+const PublicationObject = ({ entry }) => {
+    const numberOfAuthors = entry.authors;
     return (
-        <div className="flex flex-col">
-            {subtopics.map((st, index) =>
-                st === subtopic ? (
-                    <div>
-                        <h2 className="text-xl" key={index}>
-                            {st}
-                        </h2>
-                    </div>
-                ) : (
-                    ""
-                )
-            )}
-        </div>
+        <li className="list-disc text-slate-800">
+            <h2>
+                {entry.authors.map((author, index) => {
+                    if (index < numberOfAuthors) {
+                        return author + "; ";
+                    } else return author + ". ";
+                })}
+                <span className="italic">{entry.title}</span>
+            </h2>
+        </li>
     );
 };
 
-const TopicsMapping = ({ topics, subtopics, topic, entries }) => {
+const PublicationsMapping = ({ subtopic, topic, entries }) => {
     return (
-        <div className="flex flex-col">
-            {topics.map((t, index) => {
-                return subtopics.map((st, index) => {
-                    return entries.map((entry, index) => {
-                        return (
-                            <>
-                                {entry.topic === t &&
-                                entry.subtopic === st &&
-                                (entry.topic === "" || entry.subtopic === "") ? (
-                                    <div key={index}>
-                                        <h3>{entry.title}</h3>
-                                    </div>
-                                ) : (
-                                    ""
-                                )}
-                            </>
-                        );
-                    });
-                });
-            })}
-
-            {/* {topics.map((t, index) =>
-                t === topic || topic === "" ? (
-                    <div>
-                        <h1 className="text-3xl" key={index}>
-                            {t}
-                        </h1>
-                        <SubtopicsMapping subtopics={subtopics}></SubtopicsMapping>
-                    </div>
-                ) : (
-                    ""
-                )
-            )} */}
-        </div>
+        <>
+            <ul>
+                {entries.map((entry, index) =>
+                    entry.topic === topic
+                        ? PublicationObject({ entry })
+                        : topic === ""
+                        ? PublicationObject({ entry })
+                        : ""
+                )}
+            </ul>
+        </>
     );
 };
 
-const Sidebar = ({ props, topics, years, topicCallback, yearCallback }) => {
+const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
     return (
         <>
             <h3 className="font-bold">Sort by topic:</h3>
@@ -136,7 +111,7 @@ export default function Publications() {
                 }
             ></SEO>
             <div className="flex mt-8 ml-4 space-x-8">
-                <div className="flex flex-col text-sm">
+                <div className="flex flex-col text-sm shrink-0">
                     <Sidebar
                         topics={topics}
                         years={years}
@@ -144,13 +119,15 @@ export default function Publications() {
                         yearCallback={setYear}
                     ></Sidebar>
                 </div>
-                <TopicsMapping
-                    entries={pubs}
-                    props={(tp, yr)}
-                    topics={topics}
-                    topic={tp}
-                    subtopics={subtopics}
-                ></TopicsMapping>
+                <div className="flex flex-col grow">
+                    <PublicationsMapping
+                        entries={pubs}
+                        props={(tp, yr)}
+                        topics={topics}
+                        topic={tp}
+                        subtopics={subtopics}
+                    ></PublicationsMapping>
+                </div>
             </div>
         </Layout>
     );

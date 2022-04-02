@@ -93,7 +93,7 @@ export const pubs = [
         topic: "Software and System Architecture",
         subtopic: "Service Oriented Computing",
         title: "Integrating a market-based model in trust-based service systems",
-        journal: "Journal of Tsinghua Science and Technology , vol.18, no.6, pp.554 - 567",
+        journal: "Journal of Tsinghua Science and Technology, vol.18, no.6, pp.554 - 567",
         pub_month: month[12],
         pub_year: 2013,
         doi: "10.1109/TST.2013.6678901",

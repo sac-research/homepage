@@ -9,16 +9,23 @@ const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
 const years = [...new Set(pubs.map((pub) => pub.pub_year))];
 
 const PublicationObject = ({ entry }) => {
-    const numberOfAuthors = entry.authors;
     return (
-        <li className="list-disc text-slate-800">
+        <li className="list-disc text-slate-800 w-5/6">
             <h2>
                 {entry.authors.map((author, index) => {
-                    if (index < numberOfAuthors) {
+                    const numberOfAuthors = entry.authors.length;
+                    if (index < numberOfAuthors - 1) {
                         return author + "; ";
                     } else return author + ". ";
                 })}
-                <span className="italic">{entry.title}</span>
+                <span className="italic">{entry.title + ". "}</span>
+                <span className="">{entry.journal}</span>
+                <span className="">{entry.conference + ". "}</span>
+                <span className="">{entry.pub_loc}</span>
+                <span className="">
+                    {entry.pub_date + " " + entry.pub_month + " " + entry.pub_year + ". "}
+                </span>
+                <span className="">{entry.doi}</span>
             </h2>
         </li>
     );

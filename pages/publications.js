@@ -8,9 +8,9 @@ const topics = [...new Set(pubs.map((pub) => pub.topic))];
 const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
 const years = [...new Set(pubs.map((pub) => pub.pub_year))];
 
-const PublicationObject = ({ entry }) => {
+const PublicationObject = ({ entry, index }) => {
     return (
-        <li className="list-disc text-slate-800 w-5/6">
+        <li key={index} className="list-disc text-slate-800 w-5/6">
             <h2>
                 {entry.authors.map((author, index) => {
                     const numberOfAuthors = entry.authors.length;
@@ -37,9 +37,9 @@ const PublicationsMapping = ({ subtopic, topic, entries }) => {
             <ul>
                 {entries.map((entry, index) =>
                     entry.topic === topic
-                        ? PublicationObject({ entry })
+                        ? PublicationObject({ entry, index })
                         : topic === ""
-                        ? PublicationObject({ entry })
+                        ? PublicationObject({ entry, index })
                         : ""
                 )}
             </ul>
@@ -104,9 +104,7 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
 };
 
 export default function Publications() {
-    const globalData = getGlobalData();
-
-    const [tp, setTopic] = useState();
+    const [tp, setTopic] = useState("");
     const [yr, setYear] = useState();
 
     return (
@@ -126,7 +124,9 @@ export default function Publications() {
                         yearCallback={setYear}
                     ></Sidebar>
                 </div>
+
                 <div className="flex flex-col grow">
+                    {tp === "" ? "" : <h2 className="text-2xl">{tp}</h2>}
                     <PublicationsMapping
                         entries={pubs}
                         props={(tp, yr)}

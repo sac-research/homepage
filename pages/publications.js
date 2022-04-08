@@ -1,51 +1,7 @@
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
-import { getGlobalData } from "../utils/global-data";
 import { useState } from "react";
 import { pubs } from "../data/publications";
-
-const topics = [...new Set(pubs.map((pub) => pub.topic))];
-const subtopics = [...new Set(pubs.map((pub) => pub.subtopic))];
-const years = [...new Set(pubs.map((pub) => pub.pub_year))];
-
-const PublicationObject = ({ entry, index }) => {
-    return (
-        <li key={index} className="list-disc text-slate-800 w-5/6">
-            <h2>
-                {entry.authors.map((author, index) => {
-                    const numberOfAuthors = entry.authors.length;
-                    if (index < numberOfAuthors - 1) {
-                        return author + "; ";
-                    } else return author + ". ";
-                })}
-                <span className="italic">{entry.title + ". "}</span>
-                <span className="">{entry.journal}</span>
-                <span className="">{entry.conference + ". "}</span>
-                <span className="">{entry.pub_loc}</span>
-                <span className="">
-                    {entry.pub_date + " " + entry.pub_month + " " + entry.pub_year + ". "}
-                </span>
-                <span className="">{entry.doi}</span>
-            </h2>
-        </li>
-    );
-};
-
-const PublicationsMapping = ({ subtopic, topic, entries }) => {
-    return (
-        <>
-            <ul>
-                {entries.map((entry, index) =>
-                    entry.topic === topic
-                        ? PublicationObject({ entry, index })
-                        : topic === ""
-                        ? PublicationObject({ entry, index })
-                        : ""
-                )}
-            </ul>
-        </>
-    );
-};
 
 const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
     return (
@@ -103,6 +59,44 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
     );
 };
 
+const topics = Object.keys(pubs);
+const years = [2014, 2013];
+
+function PublicationEntry({ entry }) {}
+
+function PublicationsMap({ topic, entries, year }) {
+    return (
+        <div>
+            <div>
+                <h2 className="text-3xl text-red-800">Middleware and Platforms</h2>
+                <h3 className="text-xl">Streaming Processing Middleware</h3>
+                <ul>
+                    {entries["Software and System Architecture"][
+                        "Streaming Processing Middleware"
+                    ].map((pub, index) => (
+                        <li key={index} className="list-disc text-slate-800 w-5/6">
+                            {pub.authors.map((author, index) => {
+                                const numOfAuthors = pub.authors.length;
+                                if (index < numOfAuthors - 1) {
+                                    return author + "; ";
+                                } else return author + ". ";
+                            })}
+                            <span className="italic">{pub.title + ". "}</span>
+                            <span className="">{pub.journal}</span>
+                            <span className="">{pub.conference + ". "}</span>
+                            <span className="">{pub.pub_loc}</span>
+                            <span className="">
+                                {pub.pub_date + " " + pub.pub_month + " " + pub.pub_year + ". "}
+                            </span>
+                            <span className="">{pub.doi}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
+}
+
 export default function Publications() {
     const [tp, setTopic] = useState("");
     const [yr, setYear] = useState();
@@ -127,13 +121,7 @@ export default function Publications() {
 
                 <div className="flex flex-col grow">
                     {tp === "" ? "" : <h2 className="text-2xl">{tp}</h2>}
-                    <PublicationsMapping
-                        entries={pubs}
-                        props={(tp, yr)}
-                        topics={topics}
-                        topic={tp}
-                        subtopics={subtopics}
-                    ></PublicationsMapping>
+                    <PublicationsMap entries={pubs} topic={tp} year={yr}></PublicationsMap>
                 </div>
             </div>
         </Layout>

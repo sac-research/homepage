@@ -11,7 +11,7 @@ function createPublication({
     pub_loc = "",
     pub_date = "",
     pub_month = "",
-    pub_year = 0,
+    pub_year = "",
     doi = "",
 } = {}) {
     return {
@@ -48,7 +48,7 @@ const month = {
 };
 
 export const pubs = {
-    "Software and System Architecture": {
+    "Middleware and Platforms": {
         "Streaming Processing Middleware": [
             createPublication({
                 authors: ["Xing Wu", "Yan Liu"],
@@ -56,7 +56,7 @@ export const pubs = {
                 subtopic: "Streaming Processing Middleware",
                 title: "Optimization of Load Adaptive Distributed Stream Processing Services",
                 conference:
-                    "accepted by 11th IEEE International Conference on Services Computing (IEEE SCC 2014)",
+                    "Accepted by 11th IEEE International Conference on Services Computing (IEEE SCC 2014)",
                 pub_loc: "Anchorage, Alaska, USA",
                 pub_date: "",
                 pub_month: month[6],
@@ -68,13 +68,15 @@ export const pubs = {
                 subtopic: "Streaming Processing Middleware",
                 title: "Enabling A Load Adaptive Distributed Stream Processing Platform on Synchronized Clusters",
                 conference:
-                    "accepted by IEEE International Workshop on the Future of PaaS 2014 Part of the IEEE IC2E Conferenceaccepted by 11th IEEE International Conference on Services Computing (IEEE SCC 2014)",
+                    "Accepted by IEEE International Workshop on the Future of PaaS 2014 Part of the IEEE IC2E Conference",
                 pub_loc: "Boston, MA, USA",
                 pub_date: "",
                 pub_month: month[3],
                 pub_year: 2014,
             }),
         ],
+    },
+    "Software and System Architecture": {
         "Service Oriented Computing": [
             createPublication({
                 authors: ["Phoomvuthisarn, Suronapee", "Liu, Yan", "Zhu, Liming", "Jeffery, Ross"],
@@ -84,7 +86,7 @@ export const pubs = {
                 journal: "Journal of Tsinghua Science and Technology, vol.18, no.6, pp.554 - 567",
                 pub_month: month[12],
                 pub_year: 2013,
-                doi: "10.1109/TST.2013.6678901",
+                doi: "https://doi.org/10.1109/TST.2013.6678901",
             }),
         ],
         "Domain-Specific System Design": [
@@ -105,7 +107,7 @@ export const pubs = {
                 conference: "2013 IEEE Ninth World Congress",
                 pub_month: month[6] + "/" + month[7],
                 pub_year: 2013,
-                doi: "10.1109/SERVICES.2013.31",
+                doi: "https://doi.org/10.1109/SERVICES.2013.31",
             }),
             createPublication({
                 authors: ["Yan Liu", "Gorton, I.", "Wynne, A."],
@@ -117,7 +119,7 @@ export const pubs = {
                 pub_date: "25-28",
                 pub_month: month[3],
                 pub_year: 2013,
-                doi: "10.1109/SOSE.2013.37",
+                doi: "https://doi.org/10.1109/SOSE.2013.37",
             }),
             createPublication({
                 authors: [
@@ -133,7 +135,7 @@ export const pubs = {
                 conference:
                     "In Proceedings of the 16th International ACM Sigsoft symposium on Component-based software engineering (CBSE '13)",
                 pub_loc: "ACM, New York, NY, USA, 159-168",
-                doi: "10.1145/2465449.2465460",
+                doi: "https://dl.acm.org/doi/abs/10.1145/2465449.2465460",
             }),
         ],
     },
@@ -145,7 +147,7 @@ export const pubs = {
                 subtopic: "Simulation Method and Tool",
                 title: "REVEAL: An Extensible Reduced Order Model Builder for Simulation and Modeling",
                 journal: "IEEE Computing in Science & Engineering , vol.PP, no.99, pp.1-10",
-                doi: "10.1109/MCSE.2013.46",
+                doi: "https://doi.org/10.1109/MCSE.2013.46",
             }),
             createPublication({
                 authors: ["Ilge Akkaya", "Yan Liu", "Edward A. Lee", "Ian Gorton"],
@@ -154,8 +156,8 @@ export const pubs = {
                 title: "Modeling uncertainty for middleware-based streaming power grid applications",
                 conference:
                     "In Proceedings of the 8th Workshop on Middleware for Next Generation Internet Computing (MW4NextGen '13)",
-                pub_loc: "ACM, New York, NY, USA, Article 4 , 6 pages",
-                doi: "10.1145/2541608.2541612",
+                pub_loc: "ACM, New York, NY, USA, Article 4, 6 pages",
+                doi: "https://doi.org/10.1145/2541608.2541612",
             }),
         ],
     },

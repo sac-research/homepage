@@ -62,37 +62,79 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
 const topics = Object.keys(pubs);
 const years = [2014, 2013];
 
-function PublicationEntry({ entry }) {}
+function PublicationEntry({ pub, index }) {
+    return (
+        <li key={index} className="list-disc text-slate-800 w-5/6">
+            {pub.authors.map((author, index) => {
+                const numOfAuthors = pub.authors.length;
+                if (index < numOfAuthors - 1) {
+                    return author + "; ";
+                } else return author + ". ";
+            })}
+            <span className="italic">{pub.title + ". "}</span>
+            <span className="">{pub.journal}</span>
+            <span className="">{pub.conference !== "" ? pub.conference + ". " : ""}</span>
+            <span className="">{pub.pub_loc}</span>
+            <span className="">
+                {pub.pub_date + " " + pub.pub_month + " " + pub.pub_year !== ""
+                    ? pub.pub_year + ". "
+                    : ""}
+            </span>
+            <span className="">
+                <a href={pub.doi}>{pub.doi}</a>
+            </span>
+        </li>
+    );
+}
 
 function PublicationsMap({ topic, entries, year }) {
     return (
         <div>
-            <div>
-                <h2 className="text-3xl text-red-800">Middleware and Platforms</h2>
-                <h3 className="text-xl">Streaming Processing Middleware</h3>
-                <ul>
-                    {entries["Software and System Architecture"][
-                        "Streaming Processing Middleware"
-                    ].map((pub, index) => (
-                        <li key={index} className="list-disc text-slate-800 w-5/6">
-                            {pub.authors.map((author, index) => {
-                                const numOfAuthors = pub.authors.length;
-                                if (index < numOfAuthors - 1) {
-                                    return author + "; ";
-                                } else return author + ". ";
-                            })}
-                            <span className="italic">{pub.title + ". "}</span>
-                            <span className="">{pub.journal}</span>
-                            <span className="">{pub.conference + ". "}</span>
-                            <span className="">{pub.pub_loc}</span>
-                            <span className="">
-                                {pub.pub_date + " " + pub.pub_month + " " + pub.pub_year + ". "}
-                            </span>
-                            <span className="">{pub.doi}</span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            {topic === "Middleware and Platforms" || topic === "" ? (
+                <div className="mb-2">
+                    <h2 className="text-3xl text-red-800">Middleware and Platforms</h2>
+                    <h3 className="text-xl">Streaming Processing Middleware</h3>
+                    <ul>
+                        {entries["Middleware and Platforms"]["Streaming Processing Middleware"].map(
+                            (pub, index) => PublicationEntry({ pub, index })
+                        )}
+                    </ul>
+                </div>
+            ) : (
+                ""
+            )}
+            {topic === "Software and System Architecture" || topic === "" ? (
+                <div className="mb-2">
+                    <h2 className="text-3xl text-red-800">Software and System Architecture</h2>
+                    <h3 className="text-xl">Service Oriented Computing</h3>
+                    <ul>
+                        {entries["Software and System Architecture"][
+                            "Service Oriented Computing"
+                        ].map((pub, index) => PublicationEntry({ pub, index }))}
+                    </ul>
+                    <h3 className="text-xl">Domain-Specific System Design</h3>
+                    <ul>
+                        {entries["Software and System Architecture"][
+                            "Domain-Specific System Design"
+                        ].map((pub, index) => PublicationEntry({ pub, index }))}
+                    </ul>
+                </div>
+            ) : (
+                ""
+            )}
+            {topic === "Modeling and Analysis" || topic === "" ? (
+                <div className="mb-2">
+                    <h2 className="text-3xl text-red-800">Modeling and Analysis</h2>
+                    <h3 className="text-xl">Simulation Method and Tool</h3>
+                    <ul>
+                        {entries["Modeling and Analysis"]["Simulation Method and Tool"].map(
+                            (pub, index) => PublicationEntry({ pub, index })
+                        )}
+                    </ul>
+                </div>
+            ) : (
+                ""
+            )}
         </div>
     );
 }
@@ -120,7 +162,6 @@ export default function Publications() {
                 </div>
 
                 <div className="flex flex-col grow">
-                    {tp === "" ? "" : <h2 className="text-2xl">{tp}</h2>}
                     <PublicationsMap entries={pubs} topic={tp} year={yr}></PublicationsMap>
                 </div>
             </div>

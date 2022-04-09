@@ -5,7 +5,7 @@ import { pubs } from "../data/publications";
 
 const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
     return (
-        <>
+        <div className="hidden md:block">
             <h3 className="font-bold">Sort by topic:</h3>
             <ul>
                 {topics.map((topic, index) => (
@@ -55,7 +55,7 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
                     Reset sort/filter
                 </button>
             </h3>
-        </>
+        </div>
     );
 };
 

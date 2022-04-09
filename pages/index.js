@@ -16,11 +16,11 @@ export default function Home({ globalData }) {
                         Our research endeavours on designing adaptive software components,
                         architecture framework and analysis method to scale data intensive
                         distributed systems, through modeling software architecture; quantifying the
-                        system's characteristics using statistical models; predicting the system's
-                        quality attributes and devising system platforms. Current projects
-                        investigate mechanisms to improve the scalability and reliability of
-                        MapReduce Framework and Stream Processing Middleware to process incremental
-                        data analysis.
+                        system&apos;s characteristics using statistical models; predicting the
+                        system&apos;s quality attributes and devising system platforms. Current
+                        projects investigate mechanisms to improve the scalability and reliability
+                        of MapReduce Framework and Stream Processing Middleware to process
+                        incremental data analysis.
                     </h4>
                 </div>
             </div>

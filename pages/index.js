@@ -1,34 +1,74 @@
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { getGlobalData } from "../utils/global-data";
+import { getGlobalData } from "../utils/global-data.js";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+function CameraController() {
+	const { camera, gl } = useThree();
+
+	useEffect(() => {
+		const controls = new OrbitControls(camera, gl.domElement);
+		controls.minDistance = 3;
+		controls.maxDistance = 20;
+		return () => {
+			controls.dispose();
+		};
+	}, [camera, gl]);
+	return null;
+}
 
 export default function Home({ globalData }) {
-    return (
-        <Layout>
-            <SEO title={globalData.siteName} description={globalData.description}></SEO>
-            <div className="flex flex-col mt-8 mx-4 justify-center items-center">
-                <div>
-                    <h3 className="text-red-800 ">
-                        SAC research group focuses on data intensive applications in various domains
-                        running in and for the cloud
-                    </h3>
-                    <h4>
-                        Our research endeavours on designing adaptive software components,
-                        architecture framework and analysis method to scale data intensive
-                        distributed systems, through modeling software architecture; quantifying the
-                        system&apos;s characteristics using statistical models; predicting the
-                        system&apos;s quality attributes and devising system platforms. Current
-                        projects investigate mechanisms to improve the scalability and reliability
-                        of MapReduce Framework and Stream Processing Middleware to process
-                        incremental data analysis.
-                    </h4>
-                </div>
-            </div>
-        </Layout>
-    );
+	const icosaLoop = useRef();
+	return (
+		<Layout>
+			<SEO title={globalData.siteName} description={globalData.description}></SEO>
+			<div className="mx-8">
+				<div className="w-full justify-center">
+					<h2 className="text-center text-4xl font-extralight">
+						Software System Architecture in Cloud Computing
+					</h2>
+				</div>
+				<div className="flex space-x-4 items-center px-12">
+					<div className="w-[300px] h-[300px] shadow-lg">
+						<Canvas
+							shadows={true}
+							className="bg-transparent"
+							camera={{ position: [0, 0, 0] }}
+						>
+							<CameraController></CameraController>
+							<ambientLight intensity={0.2}></ambientLight>
+							<directionalLight intensity={0.5}></directionalLight>
+							<mesh ref={icosaLoop} scale={[1.5, 1.5, 1.5]}>
+								<icosahedronBufferGeometry
+									attach="geometry"
+									args={[1, 0]}
+								></icosahedronBufferGeometry>
+								<meshPhongMaterial wireframe attach="material"></meshPhongMaterial>
+							</mesh>
+						</Canvas>
+					</div>
+					<div>
+						<p>
+							{
+								"Our research endeavours on designing adaptive software components, architecture framework and analysis method to scale data intensive distributed systems, through modeling software architecture; quantifying the system's characteristics using statistical models; predicting the system's quality attributes and devising system platforms. "
+							}
+						</p>
+						<br></br>
+						<p>
+							{
+								"Current projects investigate mechanisms to improve the scalability and reliability of MapReduce Framework and Stream Processing Middleware to process incremental data analysis."
+							}
+						</p>
+					</div>
+				</div>
+			</div>
+		</Layout>
+	);
 }
 
 export function getStaticProps() {
-    const globalData = getGlobalData();
-    return { props: { globalData } };
+	const globalData = getGlobalData();
+	return { props: { globalData } };
 }

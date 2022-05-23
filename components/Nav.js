@@ -18,7 +18,7 @@ export default function Nav() {
                             router.push("/");
                         }}
                     >
-                        ~/ SAC <span className="md:block hidden">Research Group</span>
+                        ~/ SAC <span className="md:inline hidden">Research Group</span>
                     </button>
                 </h1>
             </div>

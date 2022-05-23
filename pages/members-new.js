@@ -66,8 +66,8 @@ const HomepageButton = ({ target }) => {
 
 function memberTypeSection(memberType) {
     return (
-        <div className="">
-            <h1 id={memberType} className="text-3xl">
+        <div className="my-12">
+            <h1 id={memberType} className="text-3xl text-blue-500 font-bold">
                 {memberType}
             </h1>
         </div>
@@ -77,14 +77,17 @@ function memberTypeSection(memberType) {
 function memberMapping(memberType) {
     return members.map((member, index) =>
         member.type == memberType ? (
-            <div className="text-black flex justify-start mt-4 w-full p-4" key={index}>
+            <div
+                className="text-black flex flex-col justify-center items-center min-h-[400px] p-4"
+                key={index}
+            >
                 <div className="flex flex-col">
                     <div
                         id="member-photo"
                         style={{
                             backgroundImage: "url('/members-photos/" + member.photo + "')",
                         }}
-                        className={"w-32 h-32 flex-none bg-center bg-cover rounded-full"}
+                        className={"w-48 h-48 flex-none bg-center bg-cover rounded-[36px]"}
                     ></div>
                     <div className="flex my-2 flex-wrap justify-center">
                         {member.social !== "" ? (
@@ -105,8 +108,8 @@ function memberMapping(memberType) {
                     </div>
                 </div>
 
-                <div className="ml-4">
-                    <h2 id="member-name" className="text-purple-600 font-light text-3xl">
+                <div className="">
+                    <h2 id="member-name" className="text-black font-bold text-3xl text-center">
                         {member.honorific +
                             " " +
                             member.firstName +
@@ -115,28 +118,9 @@ function memberMapping(memberType) {
                             " " +
                             member.lastName}
                     </h2>
-                    <p id="member-role" className="text-2xl">
+                    <p id="member-role" className="text-xl">
                         {member.role}
                     </p>
-                    <div className="list-disc">{member.brief_intro}</div>
-                    <div>
-                        {member.project !== "" ? (
-                            <>
-                                <h3 id="member-project" className="font-bold text-black">
-                                    Projects
-                                </h3>
-                                <ul>
-                                    {member.project.map((proj, index) => (
-                                        <li key={index} className="list-disc list-inside">
-                                            {proj}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </>
-                        ) : (
-                            ""
-                        )}
-                    </div>
                 </div>
             </div>
         ) : (
@@ -149,8 +133,8 @@ export default function Members() {
     return (
         <Layout>
             <SEO title="SAC | Members"></SEO>
-            <div className="flex mt-8 ml-4">
-                <div className="mr-4 pr-4 hidden md:block">
+            <div className="flex mt-8 mx-12">
+                {/* <div className="mr-4 pr-4 hidden md:block">
                     <ul>
                         <li>{customLink("Faculty Members")}</li>
                         <li>{customLink("Graduates")}</li>
@@ -158,26 +142,26 @@ export default function Members() {
                         <li>{customLink("Alumni")}</li>
                         <li>{customLink("Visitors")}</li>
                     </ul>
-                </div>
+                </div> */}
                 <div className="flex-initial">
-                    <div className="my-4">
-                        {memberTypeSection("Faculty Members")}
+                    {memberTypeSection("Faculty Members")}
+                    <div className="my-4 flex flex-wrap justify-start space-x-4">
                         {memberMapping("faculty")}
                     </div>
-                    <div className="my-4">
-                        {memberTypeSection("Graduates")}
+                    {memberTypeSection("Graduates")}
+                    <div className="my-4 flex flex-wrap justify-start space-x-4">
                         {memberMapping("graduate")}
                     </div>
-                    <div className="my-4">
-                        {memberTypeSection("Undergraduates")}
+                    {memberTypeSection("Undergraduates")}
+                    <div className="my-4 flex flex-wrap justify-start space-x-4">
                         {memberMapping("undergraduate")}
                     </div>
-                    <div className="my-4">
-                        {memberTypeSection("Alumni")}
+                    {memberTypeSection("Alumni")}
+                    <div className="my-4 flex flex-wrap justify-start space-x-4">
                         {memberMapping("alumni")}
                     </div>
-                    <div className="my-4">
-                        {memberTypeSection("Visitors")}
+                    {memberTypeSection("Visitors")}
+                    <div className="my-4 flex flex-wrap justify-start space-x-4">
                         {memberMapping("visitor")}
                     </div>
                 </div>

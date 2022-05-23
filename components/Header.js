@@ -1,9 +1,26 @@
 import Nav from "../components/Nav";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Header({}) {
-	return (
-		<div className="w-full p-12">
-			<Nav></Nav>
-		</div>
-	);
+    const [clientWindowHeight, setClientWindowHeight] = useState("");
+
+    const handleScroll = () => {
+        setClientWindowHeight(window.scrollY);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    });
+    return (
+        <div
+            className={
+                "w-full px-12 py-2 sticky top-0 bg-white" +
+                " " +
+                (clientWindowHeight > 20 ? "shadow-lg" : "")
+            }
+        >
+            <Nav className=""></Nav>
+        </div>
+    );
 }

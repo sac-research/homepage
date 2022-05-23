@@ -49,7 +49,7 @@ function createMember({
 
 const professorIntroduction = (
     <>
-        <h3 className="text-teal-700 font-bold list-disc">Research Areas</h3>
+        <h3 className="text-black font-normal list-disc">Research Areas</h3>
         <ul className="list-disc list-inside">
             <li>
                 Distributed Computing: Middleware; Cloud Computing; Distributed Architectures;
@@ -93,6 +93,17 @@ export const members = [
         social: "https://linkedin.com/in/aaanh",
         homepage: "https://hoanganh.dev",
         type: "undergraduate",
+    }),
+    createMember({
+        firstName: "Anh",
+        midName: "Hoang",
+        lastName: "Nguyen",
+        role: "Undergraduate Research Assistant",
+        brief_intro: "This is a placeholder entry.",
+        project: ["MLaaS Platform Benchmarking", "MLaaS Platform Benchmarking"],
+        social: "https://linkedin.com/in/aaanh",
+        homepage: "https://hoanganh.dev",
+        type: "graduate",
     }),
     createMember({
         firstName: "Hanieh",

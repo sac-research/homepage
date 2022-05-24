@@ -25,6 +25,7 @@ export default function Nav() {
             <div className="hidden md:flex space-x-4">
                 <NavBtn navTarget="/members" navText="Members"></NavBtn>
                 <NavBtn navTarget="/publications" navText="Publications"></NavBtn>
+                <NavBtn navTarget="/projects" navText="Projects"></NavBtn>
                 <NavBtn navTarget="/events" navText="Events"></NavBtn>
             </div>
             <div className="flex md:hidden -mr-8">
@@ -79,6 +80,23 @@ export default function Nav() {
                                             }}
                                         >
                                             Publications
+                                        </button>
+                                    )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <button
+                                            className={`${
+                                                active
+                                                    ? "bg-sky-500 text-white dark:text-gray-900"
+                                                    : "text-gray-900 dark:text-white"
+                                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                router.push("/projects");
+                                            }}
+                                        >
+                                            Projects
                                         </button>
                                     )}
                                 </Menu.Item>

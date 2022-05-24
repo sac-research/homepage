@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import { members } from "../data/members";
+import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
+import { members } from "../../data/members";
 
 const customLink = (target) => {
     return (

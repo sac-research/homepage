@@ -4,6 +4,29 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { MenuIcon } from "@heroicons/react/solid";
 
+function MenuItem({ path, pageName }) {
+    const router = useRouter();
+    return (
+        <Menu.Item>
+            {({ active }) => (
+                <button
+                    className={`${
+                        active
+                            ? "bg-sky-500 text-white dark:text-gray-900"
+                            : "text-gray-900 dark:text-white"
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        router.push("/" + path);
+                    }}
+                >
+                    {pageName}
+                </button>
+            )}
+        </Menu.Item>
+    );
+}
+
 export default function Nav() {
     const router = useRouter();
 
@@ -18,7 +41,7 @@ export default function Nav() {
                             router.push("/");
                         }}
                     >
-                        ~/ SAC <span className="md:inline hidden">Research Group</span>
+                        ~/SAC <span className="md:inline hidden">Research Group</span>
                     </button>
                 </h1>
             </div>
@@ -49,74 +72,10 @@ export default function Nav() {
                     >
                         <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y dark:bg-slate-900 dark:text-white divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="px-1 py-1 ">
-                                <Menu.Item>
-                                    {({ active }) => (
-                                        <button
-                                            className={`${
-                                                active
-                                                    ? "bg-sky-500 text-white dark:text-gray-900"
-                                                    : "text-gray-900 dark:text-white"
-                                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                router.push("/members");
-                                            }}
-                                        >
-                                            Members
-                                        </button>
-                                    )}
-                                </Menu.Item>
-                                <Menu.Item>
-                                    {({ active }) => (
-                                        <button
-                                            className={`${
-                                                active
-                                                    ? "bg-sky-500 text-white dark:text-gray-900"
-                                                    : "text-gray-900 dark:text-white"
-                                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                router.push("/publications");
-                                            }}
-                                        >
-                                            Publications
-                                        </button>
-                                    )}
-                                </Menu.Item>
-                                <Menu.Item>
-                                    {({ active }) => (
-                                        <button
-                                            className={`${
-                                                active
-                                                    ? "bg-sky-500 text-white dark:text-gray-900"
-                                                    : "text-gray-900 dark:text-white"
-                                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                router.push("/projects");
-                                            }}
-                                        >
-                                            Projects
-                                        </button>
-                                    )}
-                                </Menu.Item>
-                                <Menu.Item>
-                                    {({ active }) => (
-                                        <button
-                                            className={`${
-                                                active
-                                                    ? "bg-sky-500 text-white dark:text-gray-900"
-                                                    : "text-gray-900 dark:text-white"
-                                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                router.push("/events");
-                                            }}
-                                        >
-                                            Events
-                                        </button>
-                                    )}
-                                </Menu.Item>
+                                <MenuItem path="members" pageName="Members" />
+                                <MenuItem path="publications" pageName="Publications" />
+                                <MenuItem path="projects" pageName="Projects" />
+                                <MenuItem path="events" pageName="Events" />
                             </div>
                         </Menu.Items>
                     </Transition>

@@ -36,23 +36,6 @@ function memberMapping(memberType) {
                         }}
                         className={"w-48 h-48 flex-none bg-center bg-cover rounded-[36px]"}
                     ></div>
-                    {/* <div className="flex my-2 flex-wrap justify-center">
-                        {member.social !== "" ? (
-                            <LinkedInButton target={member.social}></LinkedInButton>
-                        ) : (
-                            ""
-                        )}
-                        {member.homepage !== "" ? (
-                            <HomepageButton target={member.homepage}></HomepageButton>
-                        ) : (
-                            ""
-                        )}
-                        {member.scholarPage !== "" ? (
-                            <GoogleScholarButton target={member.scholarPage}></GoogleScholarButton>
-                        ) : (
-                            ""
-                        )}
-                    </div> */}
                 </div>
 
                 <div className="">
@@ -65,7 +48,7 @@ function memberMapping(memberType) {
                             " " +
                             member.lastName}
                     </h2>
-                    <p id="member-role" className="text-xl">
+                    <p id="member-role" className="text-xl text-center">
                         {member.role}
                     </p>
                 </div>
@@ -81,34 +64,25 @@ export default function Members() {
         <Layout>
             <SEO title="SAC | Members"></SEO>
             <div className="flex mt-8 mx-12">
-                {/* <div className="mr-4 pr-4 hidden md:block">
-                    <ul>
-                        <li>{customLink("Faculty Members")}</li>
-                        <li>{customLink("Graduates")}</li>
-                        <li>{customLink("Undergraduates")}</li>
-                        <li>{customLink("Alumni")}</li>
-                        <li>{customLink("Visitors")}</li>
-                    </ul>
-                </div> */}
                 <div className="flex-initial">
                     {memberTypeSection("Faculty Members")}
-                    <div className="my-4 flex flex-wrap justify-start space-x-4">
+                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("faculty")}
                     </div>
                     {memberTypeSection("Graduates")}
-                    <div className="my-4 flex flex-wrap justify-start space-x-4">
+                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("graduate")}
                     </div>
                     {memberTypeSection("Undergraduates")}
-                    <div className="my-4 flex flex-wrap justify-start space-x-4">
+                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("undergraduate")}
                     </div>
                     {memberTypeSection("Alumni")}
-                    <div className="my-4 flex flex-wrap justify-start space-x-4">
+                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("alumni")}
                     </div>
                     {memberTypeSection("Visitors")}
-                    <div className="my-4 flex flex-wrap justify-start space-x-4">
+                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("visitor")}
                     </div>
                 </div>

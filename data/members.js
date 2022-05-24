@@ -98,7 +98,7 @@ export const members = [
         firstName: "Anh",
         midName: "Hoang",
         lastName: "Nguyen",
-        role: "Undergraduate Research Assistant",
+        role: "This is a placeholder entry.",
         brief_intro: "This is a placeholder entry.",
         project: ["MLaaS Platform Benchmarking", "MLaaS Platform Benchmarking"],
         social: "https://linkedin.com/in/aaanh",

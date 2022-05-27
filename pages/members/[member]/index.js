@@ -1,34 +1,40 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { members } from "../../../data/members";
 import Layout from "../../../components/Layout";
 
-export default function Member() {
+// need to have this dedicated function because of data asset load timing vs. page load
+function getMemberObj(members) {
     const router = useRouter();
     const { member } = router.query;
-
-    const getMemberObj = members.filter(
+    const memberObj = members.filter(
         (obj) => (obj.firstName + obj.midName + obj.lastName).toLowerCase() == member
     )[0];
+    return memberObj;
+}
+
+export default function Member() {
+    const memberObj = getMemberObj(members);
 
     return (
         <Layout>
+            {console.table(memberObj)}
             <div className="m-16">
                 <div className="flex flex-col max-w-[300px] min-w-64 min-h-[600px] justify-center rounded-md shadow-md p-6 space-y-2">
                     <div className="flex flex-col items-center justify-center">
                         <div
                             id="member-photo"
                             style={{
-                                backgroundImage:
-                                    "url('/members-photos/" + getMemberObj.photo + "')",
+                                backgroundImage: "url('/members-photos/" + memberObj.photo + "')",
                             }}
                             className={"w-48 h-48 flex-none bg-center bg-cover rounded-full"}
                         ></div>
                         <h1 className="text-2xl font-bold">
-                            {getMemberObj.firstName +
+                            {memberObj.firstName +
                                 " " +
-                                getMemberObj.midName +
+                                memberObj.midName +
                                 " " +
-                                getMemberObj.lastName}
+                                memberObj.lastName}
                         </h1>
                     </div>
 

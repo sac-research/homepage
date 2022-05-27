@@ -1,24 +1,30 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { members } from "../../../data/members";
 import Layout from "../../../components/Layout";
 
-// need to have this dedicated function because of data asset load timing vs. page load
-function getMemberObj(members) {
-    const router = useRouter();
-    const { member } = router.query;
+function getMemberObj(member) {
     const memberObj = members.filter(
         (obj) => (obj.firstName + obj.midName + obj.lastName).toLowerCase() == member
     )[0];
+
     return memberObj;
 }
 
 export default function Member() {
-    const memberObj = getMemberObj(members);
+    const router = useRouter();
+    const { member } = router.query;
+    const [memberObj, setMemberObj] = useState({});
+
+    useEffect(() => {
+        const _obj = members.filter(
+            (obj) => (obj.firstName + obj.midName + obj.lastName).toLowerCase() == member
+        )[0];
+        setMemberObj(_obj);
+    });
 
     return (
         <Layout>
-            {console.table(memberObj)}
             <div className="m-16">
                 <div className="flex flex-col max-w-[300px] min-w-64 min-h-[600px] justify-center rounded-md shadow-md p-6 space-y-2">
                     <div className="flex flex-col items-center justify-center">

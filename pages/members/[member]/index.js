@@ -3,26 +3,29 @@ import { useEffect, useState } from "react";
 import { members } from "../../../data/members";
 import Layout from "../../../components/Layout";
 
-function getMemberObj(member) {
-    const memberObj = members.filter(
-        (obj) => (obj.firstName + obj.midName + obj.lastName).toLowerCase() == member
+export const getStaticPaths = async () => {
+    const paths = members
+        .map((obj) => (obj.firstName + obj.midName + obj.lastName).toLowerCase())
+        .map((member) => ({ params: { member } }));
+
+    return {
+        paths,
+        fallback: false,
+    };
+};
+
+export const getStaticProps = async ({ params }) => {
+    const memberObj = await members.filter(
+        (obj) => (obj.firstName + obj.midName + obj.lastName).toLowerCase() == params.member
     )[0];
+    return {
+        props: {
+            filteredMember: memberObj,
+        },
+    };
+};
 
-    return memberObj;
-}
-
-export default function Member() {
-    const router = useRouter();
-    const { member } = router.query;
-    const [memberObj, setMemberObj] = useState({});
-
-    useEffect(() => {
-        const _obj = members.filter(
-            (obj) => (obj.firstName + obj.midName + obj.lastName).toLowerCase() == member
-        )[0];
-        setMemberObj(_obj);
-    });
-
+export default function Member({ filteredMember }) {
     return (
         <Layout>
             <div className="m-16">
@@ -31,16 +34,17 @@ export default function Member() {
                         <div
                             id="member-photo"
                             style={{
-                                backgroundImage: "url('/members-photos/" + memberObj.photo + "')",
+                                backgroundImage:
+                                    "url('/members-photos/" + filteredMember.photo + "')",
                             }}
                             className={"w-48 h-48 flex-none bg-center bg-cover rounded-full"}
                         ></div>
                         <h1 className="text-2xl font-bold">
-                            {memberObj.firstName +
+                            {filteredMember.firstName +
                                 " " +
-                                memberObj.midName +
+                                filteredMember.midName +
                                 " " +
-                                memberObj.lastName}
+                                filteredMember.lastName}
                         </h1>
                     </div>
 

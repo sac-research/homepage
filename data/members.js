@@ -24,11 +24,14 @@ function createMember({
     role = "",
     brief_intro = "",
     project = "",
-    social = "",
+    linkedIn = "",
+    googleScholar = "",
     homepage = "",
-    scholarPage = "",
     type = "",
     photo = "placeholder.jpg",
+    institution = "Concordia University",
+    location = "Montreal, QC. Canada", // city, state initial, country
+    interests = [],
 } = {}) {
     return {
         key,
@@ -39,11 +42,14 @@ function createMember({
         role,
         brief_intro,
         project,
-        social,
+        linkedIn,
         homepage,
-        scholarPage,
+        googleScholar,
         type,
         photo,
+        institution,
+        location,
+        interests,
     };
 }
 
@@ -79,7 +85,7 @@ export const members = [
         homepage: "https://users.encs.concordia.ca/~liu",
         type: "faculty",
         photo: "yanliu.png",
-        scholarPage:
+        googleScholar:
             "https://scholar.google.ca/citations?sortby=pubdate&hl=en&user=7yrUAMsAAAAJ&view_op=list_works",
     }),
     createMember({
@@ -90,7 +96,7 @@ export const members = [
         brief_intro:
             "I am a full-stack software developer with focus in DevOps and SRE with interests in cloud architectures, system designs, and applied machine learning.",
         project: ["MLaaS Platform Benchmarking", "MLaaS Platform Benchmarking"],
-        social: "https://linkedin.com/in/aaanh",
+        linkedIn: "https://linkedin.com/in/aaanh",
         homepage: "https://hoanganh.dev",
         type: "undergraduate",
     }),
@@ -101,7 +107,7 @@ export const members = [
         role: "This is a placeholder entry.",
         brief_intro: "This is a placeholder entry.",
         project: ["MLaaS Platform Benchmarking", "MLaaS Platform Benchmarking"],
-        social: "https://linkedin.com/in/aaanh",
+        linkedIn: "https://linkedin.com/in/aaanh",
         homepage: "https://hoanganh.dev",
         type: "graduate",
     }),
@@ -148,7 +154,7 @@ export const members = [
         type: "alumni",
         project: ["REST-based Interactive Visualization Software Framework Design"],
         homepage: "",
-        scholarPage: "",
+        googleScholar: "",
         photo: "yaweizhang.jpg",
     }),
     createMember({
@@ -163,7 +169,7 @@ export const members = [
         project: ["A Load Adaptive Middleware for Distributed Stream Processing Platforms​"],
         type: "alumni",
         homepage: "",
-        scholarPage: "",
+        googleScholar: "",
     }),
     createMember({
         key: "",
@@ -213,7 +219,7 @@ export const members = [
             "Associate Professor, School of Information Science and Engineering, Northeastern University, China",
         type: "visitor",
         homepage: "",
-        scholarPage: "",
+        googleScholar: "",
     }),
     createMember({
         key: "",
@@ -248,7 +254,8 @@ export const members = [
     //     project: [""],
     //     type: "",
     //     homepage: "",
-    //     scholarPage: "",
+    //     googleScholar: "",
+    //     linkedIn: "",
     //     photo:"",
     // }),
 ];

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { members } from "../../../data/members";
-import Layout from "../../../components/Layout";
+import { members } from "../../data/members";
+import Layout from "../../components/Layout";
 
 export const getStaticPaths = async () => {
     const paths = members
@@ -26,10 +26,14 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export default function Member({ filteredMember }) {
+    function externalLinkHandler(target) {
+        window.open(target);
+    }
+
     return (
         <Layout>
-            <div className="m-16">
-                <div className="flex flex-col max-w-[300px] min-w-64 min-h-[600px] justify-center rounded-md shadow-md p-6 space-y-2">
+            <div className="m-16 flex space-x-2">
+                <div className="flex flex-col max-w-[350px] min-w-64 min-h-[600px] justify-center rounded-md shadow-md p-6 space-y-2">
                     <div className="flex flex-col items-center justify-center">
                         <div
                             id="member-photo"
@@ -49,16 +53,49 @@ export default function Member({ filteredMember }) {
                     </div>
 
                     <div className="flex flex-wrap justify-center space-x-2 items-center">
-                        <button className="border border-black rounded-sm p-1">LinkedIn</button>
-                        <button className="border border-black rounded-sm p-1">Github</button>
-                        <button className="border border-black rounded-sm p-1">Homepage</button>
+                        <button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                externalLinkHandler(filteredMember.linkedIn);
+                            }}
+                            className="border border-black rounded-sm p-1"
+                        >
+                            LinkedIn
+                        </button>
+                        <button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                externalLinkHandler(filteredMember.github);
+                            }}
+                            className="border border-black rounded-sm p-1"
+                        >
+                            Github
+                        </button>
+                        <button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                externalLinkHandler(filteredMember.googleScholar);
+                            }}
+                            className="border border-black rounded-sm p-1"
+                        >
+                            Google Scholar
+                        </button>
+                        <button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                externalLinkHandler(filteredMember.homepage);
+                            }}
+                            className="border border-black rounded-sm p-1"
+                        >
+                            Homepage
+                        </button>
                     </div>
                     <div className="flex flex-wrap justify-center flex-col items-center">
-                        <div id="education" className="">
-                            Concordia University
+                        <div id="institution" className="">
+                            {filteredMember.institution}
                         </div>
                         <div id="location" className="">
-                            Montreal, QC. Canada
+                            {filteredMember.location}
                         </div>
                     </div>
                     <div className="flex flex-wrap justify-center flex-col">
@@ -69,6 +106,12 @@ export default function Member({ filteredMember }) {
                             <li>System Designs</li>
                             <li>SotA Software Frameworks</li>
                         </ul>
+                    </div>
+                </div>
+                <div className="px-4">
+                    <div>
+                        <h2 className="text-3xl font-bold">Introduction</h2>
+                        <p>{filteredMember.brief_intro}</p>
                     </div>
                 </div>
             </div>

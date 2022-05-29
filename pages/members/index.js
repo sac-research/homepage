@@ -39,15 +39,22 @@ function memberMapping(memberType) {
                 </div>
 
                 <div className="">
-                    <h2 id="member-name" className="text-black font-bold text-2xl text-center">
-                        {member.honorific +
-                            " " +
-                            member.firstName +
-                            " " +
-                            member.midName +
-                            " " +
-                            member.lastName}
-                    </h2>
+                    <a
+                        href={
+                            "/members/" +
+                            (member.firstName + member.midName + member.lastName).toLowerCase()
+                        }
+                    >
+                        <h2 id="member-name" className="text-black font-bold text-2xl text-center">
+                            {member.honorific +
+                                " " +
+                                member.firstName +
+                                " " +
+                                member.midName +
+                                " " +
+                                member.lastName}
+                        </h2>
+                    </a>
                     <p id="member-role" className="text-xl text-slate-700 text-center">
                         {member.role}
                     </p>

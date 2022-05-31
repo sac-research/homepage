@@ -13,7 +13,7 @@ const customLink = (target) => {
 
 function memberTypeSection(memberType) {
     return (
-        <div className="my-12">
+        <div className="my-6">
             <h1 id={memberType} className="text-3xl text-blue-500 font-bold">
                 {memberType}
             </h1>
@@ -25,21 +25,34 @@ function memberMapping(memberType) {
     return members.map((member, index) =>
         member.type == memberType ? (
             <div
-                className="text-black flex flex-col justify-center items-center min-h-[400px] min-w-[300px] p-2"
+                className="text-black flex flex-col  items-center h-[300px] w-[300px] p-2"
                 key={index}
             >
                 <div className="flex flex-col">
                     <div
+                        onClick={() => {
+                            window.open(
+                                "/members/" +
+                                    (
+                                        member.firstName +
+                                        member.midName +
+                                        member.lastName
+                                    ).toLowerCase()
+                            );
+                        }}
                         id="member-photo"
                         style={{
                             backgroundImage: "url('/members-photos/" + member.photo + "')",
                         }}
-                        className={"w-48 h-48 flex-none bg-center bg-cover rounded-[36px]"}
+                        className={
+                            "w-48 h-48 flex-none bg-center bg-cover rounded-[36px] hover:opacity-60 transition-all ease-in-out hover:cursor-pointer"
+                        }
                     ></div>
                 </div>
 
                 <div className="">
                     <a
+                        className="no-underline hover:underline underline-offset-2"
                         href={
                             "/members/" +
                             (member.firstName + member.midName + member.lastName).toLowerCase()

@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { members } from "../../data/members";
 import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
+import { LinkedInSvg, GitHubSvg, GoogleScholarSvg, HomepageSvg } from "../../components/BrandIcons";
 
 export const getStaticPaths = async () => {
     const paths = members
@@ -32,6 +34,9 @@ export default function Member({ filteredMember }) {
 
     return (
         <Layout>
+            <SEO
+                title={filteredMember.firstName + " " + filteredMember.lastName[0] + ". @ SAC"}
+            ></SEO>
             <div className="m-16 flex space-x-2">
                 <div className="flex flex-col max-w-[350px] min-w-64 min-h-[600px] justify-center rounded-md shadow-md p-6 space-y-2">
                     <div className="flex flex-col items-center justify-center">
@@ -60,7 +65,7 @@ export default function Member({ filteredMember }) {
                             }}
                             className="border border-black rounded-sm p-1"
                         >
-                            LinkedIn
+                            <LinkedInSvg></LinkedInSvg>
                         </button>
                         <button
                             onClick={(e) => {
@@ -69,7 +74,7 @@ export default function Member({ filteredMember }) {
                             }}
                             className="border border-black rounded-sm p-1"
                         >
-                            Github
+                            <GitHubSvg />
                         </button>
                         <button
                             onClick={(e) => {
@@ -78,7 +83,7 @@ export default function Member({ filteredMember }) {
                             }}
                             className="border border-black rounded-sm p-1"
                         >
-                            Google Scholar
+                            <GoogleScholarSvg></GoogleScholarSvg>
                         </button>
                         <button
                             onClick={(e) => {
@@ -87,7 +92,7 @@ export default function Member({ filteredMember }) {
                             }}
                             className="border border-black rounded-sm p-1"
                         >
-                            Homepage
+                            <HomepageSvg></HomepageSvg>
                         </button>
                     </div>
                     <div className="flex flex-wrap justify-center flex-col items-center">

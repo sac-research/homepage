@@ -80,7 +80,8 @@ export const members = [
         firstName: "Yan",
         midName: "",
         lastName: "Liu",
-        brief_intro: professorIntroduction,
+        brief_intro: `Distributed Computing: Middleware; Cloud Computing; Distributed Architectures;
+        Performance Modeling, Analysis and Evaluation; Service-oriented Computing.`,
         role: "Associate Professor and Research Lead",
         homepage: "https://users.encs.concordia.ca/~liu",
         type: "faculty",

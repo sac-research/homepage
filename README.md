@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SAC Research Group
 
-## Getting Started
+URL: https://users.encs.concordia.ca/~sac
 
-First, run the development server:
+This is the source code for SAC Research Group homepage.
 
-```bash
+The group is based at Concordia University, Montreal, QC.
+
+## Requirements
+
+Current nodejs stable or nodejs latest.
+
+## Development
+
+### Quickstart
+
+- Clone the project
+```
+git clone https://github.com/aaanh/sac-home
+```
+- Install dependencies
+```
+npm i
+```
+- Start dev server
+```
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Docker
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Containerize and build with Docker is a good step to test if your changes are ready to deployed to production. Because all if any errors and lint violations will be caught during the build step.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+> ⚠ Building the image might take a while and a considerable amount of network traffic due to lack of optimization from Nextjs official image.
+>  
+> 🛑 As of last testing on 2022-05-31, the build steps are throwing an arbitrary error, currently investigating.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+```
+docker build . -t sac-home && docker run -dp 3000:3000 sac-home --name sac-home-test-server
+```
 
-To learn more about Next.js, take a look at the following resources:
+- To stop, delete container, delete image
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+docker stop sac-home-test-server && docker container rm sac-home-test-server && docker image rm sac-home-test-server
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Data Structure and Design Rationale
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Take for example the members being listed on the site.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1.  The `member` object literal is created and initialized in `/data/members.js`
+1.  The return function has an array of `member` objects which is then exported from the data module.
+1.  The `member` object array is then imported into a page or component, which is the case of `/pages/members.js`
+1.  Array of `member` objects is then mapped to systematically generate the entries displayed on the rendered `localhost:3000/members` page.
+
+There are few details to remember:
+
+-   There are several layers to map:
+    -   Layer 0: Mapping function with conditional for `member.type`, i.e. member is faculty | grad | undergrad | etc.
+    -   Layer 1: Within mapping function, there are conditionals to render the attributes based on whether or not the attribute is instantiated in the database.
+    -   Layer 2: Several attributes are in form of array, so there are mapping functions for those as well, like in the case of `projects`
+-   Professor Liu has custom content layout with custom data in the case of `brief_intro` attribute. For the CSS to render correctly, tailwind must be configured to encompass the data folder.
+
+Based on this data design template, the other data objects should follow suite.

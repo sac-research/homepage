@@ -63,7 +63,7 @@ export default function Member({ filteredMember }) {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.linkedIn);
                             }}
-                            className="border border-black rounded-sm p-1"
+                            className="rounded-sm p-1"
                         >
                             <LinkedInSvg></LinkedInSvg>
                         </button>
@@ -72,7 +72,7 @@ export default function Member({ filteredMember }) {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.github);
                             }}
-                            className="border border-black rounded-sm p-1"
+                            className="rounded-sm p-1"
                         >
                             <GitHubSvg />
                         </button>
@@ -81,7 +81,7 @@ export default function Member({ filteredMember }) {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.googleScholar);
                             }}
-                            className="border border-black rounded-sm p-1"
+                            className="rounded-sm p-1"
                         >
                             <GoogleScholarSvg></GoogleScholarSvg>
                         </button>
@@ -90,7 +90,7 @@ export default function Member({ filteredMember }) {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.homepage);
                             }}
-                            className="border border-black rounded-sm p-1"
+                            className="rounded-sm p-1"
                         >
                             <HomepageSvg></HomepageSvg>
                         </button>

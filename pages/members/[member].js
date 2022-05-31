@@ -48,7 +48,7 @@ export default function Member({ filteredMember }) {
                             }}
                             className={"w-48 h-48 flex-none bg-center bg-cover rounded-full"}
                         ></div>
-                        <h1 className="text-2xl font-bold">
+                        <h1 className="text-2xl font-bold text-center">
                             {filteredMember.firstName +
                                 " " +
                                 filteredMember.midName +
@@ -59,38 +59,38 @@ export default function Member({ filteredMember }) {
 
                     <div className="flex flex-wrap justify-center space-x-2 items-center">
                         <button
+                            className="hover:text-purple-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.linkedIn);
                             }}
-                            className="rounded-sm p-1"
                         >
                             <LinkedInSvg></LinkedInSvg>
                         </button>
                         <button
+                            className="hover:text-purple-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.github);
                             }}
-                            className="rounded-sm p-1"
                         >
                             <GitHubSvg />
                         </button>
                         <button
+                            className="hover:text-purple-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.googleScholar);
                             }}
-                            className="rounded-sm p-1"
                         >
                             <GoogleScholarSvg></GoogleScholarSvg>
                         </button>
                         <button
+                            className="hover:text-purple-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.homepage);
                             }}
-                            className="rounded-sm p-1"
                         >
                             <HomepageSvg></HomepageSvg>
                         </button>

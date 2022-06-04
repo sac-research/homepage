@@ -12,6 +12,8 @@ module.exports = withTM(
         experimental: {
             outputStandalone: true,
         },
+        plugins: [require("@tailwindcss/typography")],
     },
+
     nextConfig
 );

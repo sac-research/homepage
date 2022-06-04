@@ -92,7 +92,7 @@ function PublicationsMap({ topic, entries, year }) {
         <div>
             {topic === "Middleware and Platforms" || topic === "" ? (
                 <div className="mb-2">
-                    <h2 className="text-3xl text-red-800">Middleware and Platforms</h2>
+                    <h2 className="text-3xl text-purple-800">Middleware and Platforms</h2>
                     <h3 className="text-xl">Streaming Processing Middleware</h3>
                     <ul>
                         {entries["Middleware and Platforms"]["Streaming Processing Middleware"].map(
@@ -105,7 +105,7 @@ function PublicationsMap({ topic, entries, year }) {
             )}
             {topic === "Software and System Architecture" || topic === "" ? (
                 <div className="mb-2">
-                    <h2 className="text-3xl text-red-800">Software and System Architecture</h2>
+                    <h2 className="text-3xl text-purple-800">Software and System Architecture</h2>
                     <h3 className="text-xl">Service Oriented Computing</h3>
                     <ul>
                         {entries["Software and System Architecture"][
@@ -124,7 +124,7 @@ function PublicationsMap({ topic, entries, year }) {
             )}
             {topic === "Modeling and Analysis" || topic === "" ? (
                 <div className="mb-2">
-                    <h2 className="text-3xl text-red-800">Modeling and Analysis</h2>
+                    <h2 className="text-3xl text-purple-800">Modeling and Analysis</h2>
                     <h3 className="text-xl">Simulation Method and Tool</h3>
                     <ul>
                         {entries["Modeling and Analysis"]["Simulation Method and Tool"].map(

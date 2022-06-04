@@ -24,7 +24,10 @@ function memberTypeSection(memberType) {
 function memberMapping(memberType) {
     return members.map((member, index) =>
         member.type == memberType ? (
-            <div className="text-black flex flex-col items-center h-[200px] w-[200px]" key={index}>
+            <div
+                className="text-black flex flex-col items-center h-[200px] w-[200px] p-2"
+                key={index}
+            >
                 <div className="flex flex-col">
                     <div
                         onClick={() => {
@@ -55,7 +58,7 @@ function memberMapping(memberType) {
                             (member.firstName + member.midName + member.lastName).toLowerCase()
                         }
                     >
-                        <h2 id="member-name" className="text-black font-bold text-xl text-center">
+                        <h2 id="member-name" className="text-black font-bold text-lg text-center">
                             {member.honorific +
                                 " " +
                                 member.firstName +

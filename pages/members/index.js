@@ -14,7 +14,7 @@ const customLink = (target) => {
 function memberTypeSection(memberType) {
     return (
         <div className="my-6">
-            <h1 id={memberType} className="text-3xl text-blue-500 font-bold">
+            <h1 id={memberType} className="text-3xl text-purple-500 font-bold">
                 {memberType}
             </h1>
         </div>
@@ -24,10 +24,7 @@ function memberTypeSection(memberType) {
 function memberMapping(memberType) {
     return members.map((member, index) =>
         member.type == memberType ? (
-            <div
-                className="text-black flex flex-col  items-center h-[300px] w-[300px] p-2"
-                key={index}
-            >
+            <div className="text-black flex flex-col items-center h-[200px] w-[200px]" key={index}>
                 <div className="flex flex-col">
                     <div
                         onClick={() => {
@@ -45,7 +42,7 @@ function memberMapping(memberType) {
                             backgroundImage: "url('/members-photos/" + member.photo + "')",
                         }}
                         className={
-                            "w-48 h-48 flex-none bg-center bg-cover rounded-[36px] hover:opacity-60 transition-all ease-in-out hover:cursor-pointer"
+                            "w-28 h-28 flex-none bg-center bg-cover rounded-[36px] hover:opacity-60 transition-all ease-in-out hover:cursor-pointer"
                         }
                     ></div>
                 </div>
@@ -58,7 +55,7 @@ function memberMapping(memberType) {
                             (member.firstName + member.midName + member.lastName).toLowerCase()
                         }
                     >
-                        <h2 id="member-name" className="text-black font-bold text-2xl text-center">
+                        <h2 id="member-name" className="text-black font-bold text-xl text-center">
                             {member.honorific +
                                 " " +
                                 member.firstName +
@@ -68,7 +65,7 @@ function memberMapping(memberType) {
                                 member.lastName}
                         </h2>
                     </a>
-                    <p id="member-role" className="text-xl text-slate-700 text-center">
+                    <p id="member-role" className="text-md text-slate-700 text-center">
                         {member.role}
                     </p>
                 </div>
@@ -83,26 +80,26 @@ export default function Members() {
     return (
         <Layout>
             <SEO title="SAC | Members"></SEO>
-            <div className="flex mt-8 mx-12">
+            <div className="flex mt-4 mx-12">
                 <div className="flex-initial">
                     {memberTypeSection("Faculty Members")}
-                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
+                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("faculty")}
                     </div>
                     {memberTypeSection("Graduates")}
-                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
+                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("graduate")}
                     </div>
                     {memberTypeSection("Undergraduates")}
-                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
+                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("undergraduate")}
                     </div>
                     {memberTypeSection("Alumni")}
-                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
+                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("alumni")}
                     </div>
                     {memberTypeSection("Visitors")}
-                    <div className="my-4 flex flex-wrap justify-center md:justify-start">
+                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
                         {memberMapping("visitor")}
                     </div>
                 </div>

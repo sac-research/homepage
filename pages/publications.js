@@ -11,7 +11,7 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
                 {topics.map((topic, index) => (
                     <li key={index}>
                         <button
-                            className="text-teal-600 hover:underline underline-offset-2"
+                            className="text-blue-500 hover:underline underline-offset-2"
                             onClick={(e) => {
                                 e.preventDefault;
                                 topicCallback(topic);
@@ -30,7 +30,7 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
                     ) : (
                         <li key={index}>
                             <button
-                                className="text-teal-600 hover:underline underline-offset-2"
+                                className="text-blue-500 hover:underline underline-offset-2"
                                 key={index}
                                 onClick={(e) => {
                                     e.preventDefault;
@@ -64,7 +64,7 @@ const years = [2014, 2013];
 
 function PublicationEntry({ pub, index }) {
     return (
-        <li key={index} className="list-disc text-slate-800 w-5/6">
+        <li key={index} className="list-disc text-slate-800 w-5/6 mt-2">
             {pub.authors.map((author, index) => {
                 const numOfAuthors = pub.authors.length;
                 if (index < numOfAuthors - 1) {
@@ -92,8 +92,8 @@ function PublicationsMap({ topic, entries, year }) {
         <div>
             {topic === "Middleware and Platforms" || topic === "" ? (
                 <div className="mb-2">
-                    <h2 className="text-3xl text-purple-800">Middleware and Platforms</h2>
-                    <h3 className="text-xl">Streaming Processing Middleware</h3>
+                    <h2 className="text-4xl font-bold text-purple-500">Middleware and Platforms</h2>
+                    <h3 className="text-xl my-2">Streaming Processing Middleware</h3>
                     <ul>
                         {entries["Middleware and Platforms"]["Streaming Processing Middleware"].map(
                             (pub, index) => PublicationEntry({ pub, index })
@@ -105,14 +105,16 @@ function PublicationsMap({ topic, entries, year }) {
             )}
             {topic === "Software and System Architecture" || topic === "" ? (
                 <div className="mb-2">
-                    <h2 className="text-3xl text-purple-800">Software and System Architecture</h2>
-                    <h3 className="text-xl">Service Oriented Computing</h3>
+                    <h2 className="text-4xl font-bold text-purple-500">
+                        Software and System Architecture
+                    </h2>
+                    <h3 className="text-xl my-2">Service Oriented Computing</h3>
                     <ul>
                         {entries["Software and System Architecture"][
                             "Service Oriented Computing"
                         ].map((pub, index) => PublicationEntry({ pub, index }))}
                     </ul>
-                    <h3 className="text-xl">Domain-Specific System Design</h3>
+                    <h3 className="text-xl my-2">Domain-Specific System Design</h3>
                     <ul>
                         {entries["Software and System Architecture"][
                             "Domain-Specific System Design"
@@ -124,8 +126,8 @@ function PublicationsMap({ topic, entries, year }) {
             )}
             {topic === "Modeling and Analysis" || topic === "" ? (
                 <div className="mb-2">
-                    <h2 className="text-3xl text-purple-800">Modeling and Analysis</h2>
-                    <h3 className="text-xl">Simulation Method and Tool</h3>
+                    <h2 className="text-4xl font-bold text-purple-500">Modeling and Analysis</h2>
+                    <h3 className="text-xl my-2">Simulation Method and Tool</h3>
                     <ul>
                         {entries["Modeling and Analysis"]["Simulation Method and Tool"].map(
                             (pub, index) => PublicationEntry({ pub, index })

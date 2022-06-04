@@ -26,6 +26,7 @@ function createMember({
     project = "",
     linkedIn = "",
     googleScholar = "",
+    github = "",
     homepage = "",
     type = "",
     photo = "placeholder.jpg",
@@ -44,6 +45,7 @@ function createMember({
         project,
         linkedIn,
         homepage,
+        github,
         googleScholar,
         type,
         photo,
@@ -100,6 +102,7 @@ export const members = [
         linkedIn: "https://linkedin.com/in/aaanh",
         homepage: "https://hoanganh.dev",
         type: "undergraduate",
+        github: "https://github.com/aaanh",
     }),
     createMember({
         firstName: "Anh",
@@ -111,6 +114,7 @@ export const members = [
         linkedIn: "https://linkedin.com/in/aaanh",
         homepage: "https://hoanganh.dev",
         type: "graduate",
+        github: "https://github.com/aaanh",
     }),
     createMember({
         firstName: "Hanieh",

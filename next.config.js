@@ -4,13 +4,14 @@ const nextConfig = {
 };
 
 const withTM = require("next-transpile-modules")(["three"]);
-module.exports = {
-    eslint: {
-        ignoreDuringBuilds: true,
+module.exports = withTM(
+    {
+        eslint: {
+            ignoreDuringBuilds: true,
+        },
+        experimental: {
+            outputStandalone: true,
+        },
     },
-    experimental: {
-        outputStandalone: true,
-    },
-};
-module.exports = withTM();
-module.exports = nextConfig;
+    nextConfig
+);

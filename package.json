@@ -1,6 +1,6 @@
 {
-  "name": "sac-home-redesign",
-  "version": "0.1.0",
+  "name": "sac-home",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,7 +13,7 @@
     "@heroicons/react": "^1.0.6",
     "@react-three/fiber": "^8.0.19",
     "firebase": "^9.8.2",
-    "next": "12.1.6",
+    "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "three": "^0.140.2"

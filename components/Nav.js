@@ -4,6 +4,36 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { MenuIcon } from "@heroicons/react/solid";
 
+export const ThemeSwitcher = () => {
+    return (
+        <div className="flex h-12 text-slate justify-center dark:transparent dark:border-gray-500 border rounded-3xl">
+            <button
+                type="button"
+                aria-label="Use Dark Mode"
+                onClick={() => {
+                    document.documentElement.classList.add("dark");
+                    localStorage.setItem("theme", "dark");
+                }}
+                className="rounded-l-3xl flex items-center dark:bg-primary justify-center align-center transition dark:text-blue-500 hover:bg-purple-500 hover:dark:bg-transparent px-4"
+            >
+                Dark
+            </button>
+
+            <button
+                type="button"
+                aria-label="Use Light Mode"
+                onClick={() => {
+                    document.documentElement.classList.remove("dark");
+                    localStorage.setItem("theme", "light");
+                }}
+                className="rounded-r-3xl flex items-center bg-primary dark:bg-transparentjustify-center align-center transition dark:text-white text-purple-600 hover:dark:bg-blue-500 px-4"
+            >
+                Light
+            </button>
+        </div>
+    );
+};
+
 function MenuItem({ path, pageName }) {
     const router = useRouter();
     return (
@@ -45,11 +75,12 @@ export default function Nav() {
                     </button>
                 </h1>
             </div>
-            <div className="hidden md:flex space-x-4">
+            <div className="hidden md:flex space-x-4 items-center">
                 <NavBtn navTarget="/members" navText="Members"></NavBtn>
                 <NavBtn navTarget="/publications" navText="Publications"></NavBtn>
                 <NavBtn navTarget="/projects" navText="Projects"></NavBtn>
                 <NavBtn navTarget="/events" navText="Events"></NavBtn>
+                <ThemeSwitcher></ThemeSwitcher>
             </div>
             <div className="flex md:hidden -mr-8">
                 <Menu as="div" className="relative inline-block text-left">

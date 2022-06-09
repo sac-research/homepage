@@ -22,7 +22,7 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
                     </li>
                 ))}
             </ul>
-            <h3 className="font-bold">Sort by year:</h3>
+            {/* <h3 className="font-bold">Sort by year:</h3>
             <ul>
                 {years.map((year, index) =>
                     year === 0 || year === "" ? (
@@ -42,7 +42,7 @@ const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
                         </li>
                     )
                 )}
-            </ul>
+            </ul> */}
             <h3>
                 <button
                     className="hover:underline underline-offset-2 font-bold"
@@ -64,7 +64,7 @@ const years = [2014, 2013];
 
 function PublicationEntry({ pub, index }) {
     return (
-        <li key={index} className="list-disc text-slate-800 w-5/6 mt-2">
+        <li key={index} className="list-disc text-slate-800 dark:text-slate-300 w-5/6 mt-2">
             {pub.authors.map((author, index) => {
                 const numOfAuthors = pub.authors.length;
                 if (index < numOfAuthors - 1) {

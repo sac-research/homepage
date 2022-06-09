@@ -3,7 +3,7 @@ import Header from "./Header";
 
 export default function Layout({ children }) {
     return (
-        <div className=" pb-24">
+        <div className="pb-24 ">
             {/* <div className="w-full flex justify-center items-center py-4 bg-purple-700 text-white">
                 <h1>Currently being prototyped and redesigned.</h1>
             </div> */}

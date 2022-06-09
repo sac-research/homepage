@@ -31,9 +31,9 @@ export default function Projects() {
                             </h3>
 
                             <details>
-                                <summary>Description</summary>
+                                <summary>Learn more</summary>
                                 {p.description.map((d, j) => (
-                                    <p className="my-2" key={j}>
+                                    <p className="my-2 dark:text-slate-300" key={j}>
                                         {d}
                                     </p>
                                 ))}
@@ -52,7 +52,7 @@ export default function Projects() {
                                 </a>
                             </h3>
                             <details>
-                                <summary>Description</summary>
+                                <summary>Learn more</summary>
                                 {p.description.map((d, j) => (
                                     <p className="my-2" key={j}>
                                         {d}

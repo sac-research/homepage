@@ -25,7 +25,7 @@ function memberMapping(memberType) {
     return members.map((member, index) =>
         member.type == memberType ? (
             <div
-                className="text-black flex flex-col items-center h-[200px] w-[200px] p-2"
+                className="text-black flex flex-col items-center h-[200px] w-[200px] p-2 "
                 key={index}
             >
                 <div className="flex flex-col">
@@ -58,7 +58,10 @@ function memberMapping(memberType) {
                             (member.firstName + member.midName + member.lastName).toLowerCase()
                         }
                     >
-                        <h2 id="member-name" className="text-black font-bold text-lg text-center">
+                        <h2
+                            id="member-name"
+                            className="text-black font-bold text-lg text-center dark:text-white"
+                        >
                             {member.honorific +
                                 " " +
                                 member.firstName +
@@ -68,7 +71,10 @@ function memberMapping(memberType) {
                                 member.lastName}
                         </h2>
                     </a>
-                    <p id="member-role" className="text-md text-slate-700 text-center">
+                    <p
+                        id="member-role"
+                        className="text-md text-slate-700 dark:text-slate-400 text-center"
+                    >
                         {member.role}
                     </p>
                 </div>

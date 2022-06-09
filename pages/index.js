@@ -33,9 +33,9 @@ export default function Home({ globalData }) {
             </div>
             <div className="flex flex-wrap justify-center space-x-4 items-center px-12">
                 <div className="w-[300px] h-[300px] shadow-lg justify-center items-center flex p-2 my-4">
-                    <span className="text-slate-300 text-center">
+                    {/* <span className="text-slate-300 text-center">
                         This is a placeholder imagery.
-                    </span>
+                    </span> */}
                     <Canvas
                         shadows={true}
                         className="bg-transparent"

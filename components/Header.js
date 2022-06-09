@@ -15,7 +15,7 @@ export default function Header({}) {
     return (
         <div
             className={
-                "w-full px-12 py-2 sticky top-0 bg-white" +
+                "w-full px-12 py-2 sticky top-0 bg-white dark:bg-slate-900 dark:text-white" +
                 " " +
                 (clientWindowHeight > 20 ? "shadow-lg" : "")
             }

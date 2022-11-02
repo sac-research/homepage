@@ -39,7 +39,7 @@ export default function Nav() {
     return (
         <div className={"flex justify-between align-middle-center items-center"}>
             <div>
-                <h1 className="font-bold hover:text-emerald-500 text-4xl transition-all ease-in-out">
+                <h1 className="font-bold hover:text-emerald-500 text-2xl transition-all ease-in-out">
                     <button
                         className="font-bold flex space-x-4 justify-center items-center"
                         onClick={(e) => {
@@ -47,7 +47,7 @@ export default function Nav() {
                             router.push("/");
                         }}
                     >
-                        <Image src={logo} height={60} width={80}></Image>
+                        <Image src={logo} height={50} width={70}></Image>
                         <span className="md:inline hidden">SAC Research Group</span>
                     </button>
                 </h1>

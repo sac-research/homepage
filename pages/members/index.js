@@ -2,6 +2,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
 import { members } from "../../data/members";
+import { useRouter } from "next/router";
 
 const customLink = (target) => {
     return (
@@ -22,6 +23,8 @@ function memberTypeSection(memberType) {
 }
 
 function memberMapping(memberType) {
+    const router = useRouter();
+
     return members.map((member, index) =>
         member.type == memberType ? (
             <div
@@ -31,7 +34,7 @@ function memberMapping(memberType) {
                 <div className="flex flex-col">
                     <div
                         onClick={() => {
-                            window.open(
+                            router.push(
                                 "/members/" +
                                     (
                                         member.firstName +
@@ -45,14 +48,14 @@ function memberMapping(memberType) {
                             backgroundImage: "url('/members-photos/" + member.photo + "')",
                         }}
                         className={
-                            "w-28 h-28 flex-none bg-center bg-cover rounded-[36px] hover:opacity-60 transition-all ease-in-out hover:cursor-pointer"
+                            "w-28 h-28 flex-none bg-center bg-cover rounded-lg hover:opacity-60 transition-all ease-in-out hover:cursor-pointer"
                         }
                     ></div>
                 </div>
 
                 <div className="">
                     <a
-                        className="no-underline hover:underline underline-offset-2"
+                        className="no-underline hover:underline underline-offset-4 decoration-emerald-500"
                         href={
                             "/members/" +
                             (member.firstName + member.midName + member.lastName).toLowerCase()

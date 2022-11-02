@@ -21,7 +21,7 @@ function CameraController() {
 }
 
 function LatestPublicationCard({ pub }) { 
-    return <div className="w-96 h-128 rounded-sm shadow-md p-2">
+    return <div className="w-[500px] h-auto rounded-sm shadow-md p-2">
         <h3 className="font-bold">{pub.title}</h3>
         <p>{pub.authors}</p>
         <p>{pub.journal}</p>

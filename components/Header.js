@@ -15,9 +15,9 @@ export default function Header({}) {
     return (
         <div
             className={
-                "w-full px-12 py-2 sticky top-0 bg-white dark:bg-slate-900 dark:text-white" +
+                "w-4/5 px-12 py-2 sticky bg-white dark:bg-slate-900 dark:text-white rounded-lg transition-all ease-in-out" +
                 " " +
-                (clientWindowHeight > 20 ? "shadow-lg" : "")
+                (clientWindowHeight > 20 ? "shadow-lg dark:shadow-2xl top-4" : "top-0")
             }
         >
             <Nav className=""></Nav>

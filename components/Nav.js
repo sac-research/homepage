@@ -3,36 +3,10 @@ import { useRouter } from "next/router";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { MenuIcon } from "@heroicons/react/solid";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
-export const ThemeSwitcher = () => {
-    return (
-        <div className="flex h-12 text-slate justify-center dark:transparent dark:border-gray-500 border rounded-3xl">
-            <button
-                type="button"
-                aria-label="Use Dark Mode"
-                onClick={() => {
-                    document.documentElement.classList.add("dark");
-                    localStorage.setItem("theme", "dark");
-                }}
-                className="rounded-l-3xl flex items-center dark:bg-primary justify-center align-center transition dark:text-blue-500 hover:bg-purple-500 hover:dark:bg-transparent px-4"
-            >
-                Dark
-            </button>
-
-            <button
-                type="button"
-                aria-label="Use Light Mode"
-                onClick={() => {
-                    document.documentElement.classList.remove("dark");
-                    localStorage.setItem("theme", "light");
-                }}
-                className="rounded-r-3xl flex items-center bg-primary dark:bg-transparentjustify-center align-center transition dark:text-white text-purple-600 hover:dark:bg-blue-500 px-4"
-            >
-                Light
-            </button>
-        </div>
-    );
-};
+import logo from '../public/sac-logo.png'
 
 function MenuItem({ path, pageName }) {
     const router = useRouter();
@@ -60,18 +34,21 @@ function MenuItem({ path, pageName }) {
 export default function Nav() {
     const router = useRouter();
 
+    const [themeBtnTxt, setThemeBtnTxt] = useState('light');
+
     return (
         <div className={"flex justify-between align-middle-center items-center"}>
             <div>
-                <h1 className="font-bold hover:text-purple-500 text-4xl transition-all ease-in-out">
+                <h1 className="font-bold hover:text-emerald-500 text-4xl transition-all ease-in-out">
                     <button
-                        className="font-bold"
+                        className="font-bold flex space-x-4 justify-center items-center"
                         onClick={(e) => {
                             e.preventDefault();
                             router.push("/");
                         }}
                     >
-                        ~/SAC <span className="md:inline hidden">Research Group</span>
+                        <Image src={logo} height={60} width={80}></Image>
+                        <span className="md:inline hidden">SAC Research Group</span>
                     </button>
                 </h1>
             </div>
@@ -80,14 +57,46 @@ export default function Nav() {
                 <NavBtn navTarget="/publications" navText="Publications"></NavBtn>
                 <NavBtn navTarget="/projects" navText="Projects"></NavBtn>
                 <NavBtn navTarget="/events" navText="Events"></NavBtn>
-                <ThemeSwitcher></ThemeSwitcher>
+                <button
+                    aria-label="Toggle Dark Mode"
+                    type="button"
+                    className="ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4"
+                    onClick={() => {
+                        if (localStorage.getItem("theme") === "dark") {
+                            document.documentElement.classList.remove("dark");
+                            localStorage.setItem("theme", "light");
+                            setThemeBtnTxt("light");
+                        } else {
+                            document.documentElement.classList.add("dark");
+                            localStorage.setItem("theme", "dark");
+                            setThemeBtnTxt("dark");
+                        }
+                    }}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        className="text-gray-900 dark:text-gray-100"
+                    >
+                        {themeBtnTxt === "dark" ? (
+                            <path
+                                fillRule="evenodd"
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                clipRule="evenodd"
+                            />
+                        ) : (
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        )}
+                    </svg>
+                </button>
             </div>
             <div className="flex md:hidden -mr-8">
                 <Menu as="div" className="relative inline-block text-left">
                     <div>
                         <Menu.Button className="inline-flex w-full justify-center rounded-md items-center text-sm dark:bg-black bg-opacity-20 px-12 py-2 font-medium dark:text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                             <MenuIcon
-                                className="h-5 w-5 text-violet-200 hover:text-violet-100"
+                                className="h-5 w-5 text-neutral-500 hover:text-neutral-700"
                                 aria-hidden="true"
                             />
                         </Menu.Button>

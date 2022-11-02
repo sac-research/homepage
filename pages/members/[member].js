@@ -59,7 +59,7 @@ export default function Member({ filteredMember }) {
 
                     <div className="flex flex-wrap justify-center space-x-2 items-center">
                         <button
-                            className="hover:text-purple-600 text-neutral-800"
+                            className="hover:text-emerald-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.linkedIn);
@@ -68,7 +68,7 @@ export default function Member({ filteredMember }) {
                             <LinkedInSvg></LinkedInSvg>
                         </button>
                         <button
-                            className="hover:text-purple-600 text-neutral-800"
+                            className="hover:text-emerald-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.github);
@@ -77,7 +77,7 @@ export default function Member({ filteredMember }) {
                             <GitHubSvg />
                         </button>
                         <button
-                            className="hover:text-purple-600 text-neutral-800"
+                            className="hover:text-emerald-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.googleScholar);
@@ -86,7 +86,7 @@ export default function Member({ filteredMember }) {
                             <GoogleScholarSvg></GoogleScholarSvg>
                         </button>
                         <button
-                            className="hover:text-purple-600 text-neutral-800"
+                            className="hover:text-emerald-600 text-neutral-800"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.homepage);

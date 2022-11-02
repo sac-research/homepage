@@ -6,7 +6,7 @@ import { events } from "../data/events";
 function eventsMapping() {
     return events.map((event, index) => (
         <div className="my-2" key={index}>
-            <h2 className="text-2xl mb-2 font-bold text-blue-500">
+            <h2 className="text-2xl mb-2 font-bold text-emerald-500">
                 {event.date}, {event.year} | {event.title}
             </h2>
             {event.description.map((d, index) => (

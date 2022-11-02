@@ -14,7 +14,7 @@ const customLink = (target) => {
 function memberTypeSection(memberType) {
     return (
         <div className="my-6">
-            <h1 id={memberType} className="text-3xl text-purple-500 font-bold">
+            <h1 id={memberType} className="text-3xl text-emerald-500 font-bold">
                 {memberType}
             </h1>
         </div>
@@ -90,26 +90,36 @@ export default function Members() {
         <Layout>
             <SEO title="SAC | Members"></SEO>
             <div className="flex mt-4 mx-12">
-                <div className="flex-initial">
-                    {memberTypeSection("Faculty Members")}
-                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
-                        {memberMapping("faculty")}
+                <div className="flex-initial flex flex-wrap justify-center">
+                    <div className="text-center">
+                        {memberTypeSection("Faculty Members")}
+                        <div className="my-2 flex flex-wrap justify-center">
+                            {memberMapping("faculty")}
+                        </div>
                     </div>
-                    {memberTypeSection("Graduates")}
-                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
-                        {memberMapping("graduate")}
+                    <div className="text-center">
+                        {memberTypeSection("Graduates")}
+                        <div className="my-2 flex flex-wrap justify-center">
+                            {memberMapping("graduate")}
+                        </div>
                     </div>
-                    {memberTypeSection("Undergraduates")}
-                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
-                        {memberMapping("undergraduate")}
+                    <div className="text-center">
+                        {memberTypeSection("Undergraduates")}
+                        <div className="my-2 flex flex-wrap justify-center">
+                            {memberMapping("undergraduate")}
+                        </div>
                     </div>
-                    {memberTypeSection("Alumni")}
-                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
-                        {memberMapping("alumni")}
+                    <div className="text-center">
+                        {memberTypeSection("Alumni")}
+                        <div className="my-2 flex flex-wrap justify-center">
+                            {memberMapping("alumni")}
+                        </div>
                     </div>
-                    {memberTypeSection("Visitors")}
-                    <div className="my-2 flex flex-wrap justify-center md:justify-start">
-                        {memberMapping("visitor")}
+                    <div className="text-center">
+                        {memberTypeSection("Visitors")}
+                        <div className="my-2 flex flex-wrap justify-center">
+                            {memberMapping("visitor")}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ export const getGlobalData = () => {
 	const description = process.env.SITE_DESCRIPTION
 		? decodeURI(process.env.SITE_DESCRIPTION)
 		: "Software System Architecture in Cloud Computing";
-	const favicon = "/logo_fav.ico";
+	const favicon = "/sac-logo.png";
 	return {
 		siteName,
 		description,

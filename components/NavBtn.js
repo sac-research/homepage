@@ -11,10 +11,10 @@ export default function NavBtn({ navText, navTarget }) {
         <button
             onClick={handleNav}
             className={
-                "rounded-full p-4 transition-all font-normal hover:underline hover:decoration-purple-400 decoration-2 underline-offset-2" +
+                "rounded-full p-4 transition-all font-normal hover:underline hover:decoration-emerald-400 decoration-2 underline-offset-2" +
                 " " +
                 (router.asPath === navTarget && router.asPath !== "/"
-                    ? "underline decoration-purple-500 decoration-2 underline-offset-2"
+                    ? "underline decoration-emerald-500 decoration-2 underline-offset-2"
                     : "")
             }
         >

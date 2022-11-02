@@ -64,7 +64,7 @@ export const projects = {
             description: [
                 "This project explores an intial architectural structure of storage security on cloud. It is a capability-based system, which consists in giving a user the rights based in a unique object identifier. In the case of this project, the capability file is storage in a specific server, not the cloud, and this file has all operations that the each user can do. This research uses Google drive to store all files of our clients and the server that runs our application on top of it and protects users' files.",
             ],
-            link_ref: "/Capability-Based.pdf",
+            link_ref: "/project_refs/Capability-Based.pdf",
         }),
     ],
 };

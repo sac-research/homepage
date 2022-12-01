@@ -5,6 +5,9 @@ const nextConfig = {
     theme: {
         extend: {},
     },
+    images: {
+    unoptimized: true,
+  },
 };
 
 const withTM = require("next-transpile-modules")(["three"]);

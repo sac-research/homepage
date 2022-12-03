@@ -1,8 +1,7 @@
-import SEO from "../components/SEO";
-import { getGlobalData } from "../utils/global-data";
-import { projects } from "../data/projects";
-import Layout from "../components/Layout";
-import Link from "next/link";
+import SEO from "../../components/SEO";
+import { getGlobalData } from "../../utils/global-data";
+import { projects } from "../../data/archive_projects";
+import Layout from "../../components/Layouts/Layout";
 
 const prospectiveProjects = [
     "Mobile development on open cloud platforms",
@@ -14,7 +13,7 @@ const prospectiveProjects = [
     "Modeling and simuation of cloud resources",
 ];
 
-export default function Projects() {
+export default function ArchivedProjects() {
     let globalData = getGlobalData();
     return (
         <Layout>

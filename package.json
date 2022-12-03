@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.6.2",
     "@heroicons/react": "^1.0.6",
     "@react-three/fiber": "^8.0.19",
+    "daisyui": "^2.42.1",
     "next": "^12.3.2",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",

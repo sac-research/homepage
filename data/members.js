@@ -237,6 +237,7 @@ export const members = [
         homepage: "https://hoanganh.dev",
         type: "undergraduate",
         github: "https://github.com/aaanh",
+        interests: ["DevOps", "Machine Learning Operations", "Cloud Computing", "System Design"],
     }),
     // ALUMNI SECTION
     createMember({

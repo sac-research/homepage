@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Layout from "../../components/Layout";
+import Layout from "../../components/Layouts/Layout";
 import SEO from "../../components/SEO";
 import { members } from "../../data/members";
 import { useRouter } from "next/router";
@@ -15,7 +15,7 @@ const customLink = (target) => {
 function memberTypeSection(memberType) {
     return (
         <div className="my-6">
-            <h1 id={memberType} className="text-3xl text-emerald-500 font-bold">
+            <h1 id={memberType} className="text-3xl text-primary font-bold">
                 {memberType}
             </h1>
         </div>
@@ -28,7 +28,7 @@ function memberMapping(memberType) {
     return members.map((member, index) =>
         member.type == memberType ? (
             <div
-                className="text-black flex flex-col items-center h-[200px] w-[200px] p-2 "
+                className="flex flex-col items-center h-[200px] w-[200px] p-2"
                 key={index}
             >
                 <div className="flex flex-col">
@@ -36,11 +36,11 @@ function memberMapping(memberType) {
                         onClick={() => {
                             router.push(
                                 "/members/" +
-                                    (
-                                        member.firstName +
-                                        member.midName +
-                                        member.lastName
-                                    ).toLowerCase()
+                                (
+                                    member.firstName +
+                                    member.midName +
+                                    member.lastName
+                                ).toLowerCase()
                             );
                         }}
                         id="member-photo"
@@ -53,9 +53,9 @@ function memberMapping(memberType) {
                     ></div>
                 </div>
 
-                <div className="">
+                <div>
                     <a
-                        className="no-underline hover:underline underline-offset-4 decoration-emerald-500"
+                        className="no-underline hover:underline underline-offset-4 decoration-info"
                         href={
                             "/members/" +
                             (member.firstName + member.midName + member.lastName).toLowerCase()
@@ -63,7 +63,7 @@ function memberMapping(memberType) {
                     >
                         <h2
                             id="member-name"
-                            className="text-black font-bold text-lg text-center dark:text-white"
+                            className="font-bold text-lg text-center text-info"
                         >
                             {member.honorific +
                                 " " +
@@ -76,7 +76,7 @@ function memberMapping(memberType) {
                     </a>
                     <p
                         id="member-role"
-                        className="text-md text-slate-700 dark:text-slate-400 text-center"
+                        className="text-md text-center"
                     >
                         {member.role}
                     </p>

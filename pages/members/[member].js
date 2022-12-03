@@ -1,7 +1,5 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { members } from "../../data/members";
-import Layout from "../../components/Layout";
+import Layout from "../../components/Layouts/Layout";
 import SEO from "../../components/SEO";
 import { LinkedInSvg, GitHubSvg, GoogleScholarSvg, HomepageSvg } from "../../components/BrandIcons";
 
@@ -37,8 +35,16 @@ export default function Member({ filteredMember }) {
             <SEO
                 title={filteredMember.firstName + " " + filteredMember.lastName[0] + ". @ SAC"}
             ></SEO>
-            <div className="m-16 flex space-x-2">
-                <div className="flex flex-col max-w-[350px] min-w-64 min-h-[600px] justify-center rounded-md shadow-md p-6 space-y-2">
+            <h1 className="text-4xl font-bold text-center text-primary">
+                {(filteredMember.honorific != "" ? filteredMember.honorific + " " : "") +
+                    filteredMember.firstName +
+                    " " +
+                    filteredMember.midName +
+                    " " +
+                    filteredMember.lastName}
+            </h1>
+            <div className="flex space-x-2 mt-4">
+                <div className="flex flex-col justify-center rounded-md shadow-md space-y-6">
                     <div className="flex flex-col items-center justify-center">
                         <div
                             id="member-photo"
@@ -48,18 +54,11 @@ export default function Member({ filteredMember }) {
                             }}
                             className={"w-48 h-48 flex-none bg-center bg-cover rounded-full"}
                         ></div>
-                        <h1 className="text-2xl font-bold text-center">
-                            {filteredMember.firstName +
-                                " " +
-                                filteredMember.midName +
-                                " " +
-                                filteredMember.lastName}
-                        </h1>
                     </div>
 
                     <div className="flex flex-wrap justify-center space-x-2 items-center">
                         <button
-                            className="hover:text-emerald-600 text-neutral-800"
+                            className="hover:text-info"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.linkedIn);
@@ -68,7 +67,7 @@ export default function Member({ filteredMember }) {
                             <LinkedInSvg></LinkedInSvg>
                         </button>
                         <button
-                            className="hover:text-emerald-600 text-neutral-800"
+                            className="hover:text-info"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.github);
@@ -77,7 +76,7 @@ export default function Member({ filteredMember }) {
                             <GitHubSvg />
                         </button>
                         <button
-                            className="hover:text-emerald-600 text-neutral-800"
+                            className="hover:text-info"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.googleScholar);
@@ -86,7 +85,7 @@ export default function Member({ filteredMember }) {
                             <GoogleScholarSvg></GoogleScholarSvg>
                         </button>
                         <button
-                            className="hover:text-emerald-600 text-neutral-800"
+                            className="hover:text-info"
                             onClick={(e) => {
                                 e.preventDefault();
                                 externalLinkHandler(filteredMember.homepage);
@@ -96,21 +95,12 @@ export default function Member({ filteredMember }) {
                         </button>
                     </div>
                     <div className="flex flex-wrap justify-center flex-col items-center">
-                        <div id="institution" className="">
+                        <div id="institution" className="font-bold text-accent">
                             {filteredMember.institution}
                         </div>
                         <div id="location" className="">
                             {filteredMember.location}
                         </div>
-                    </div>
-                    <div className="flex flex-wrap justify-center flex-col">
-                        <h2 className="text-2xl font-bold">Interests</h2>
-                        <ul className="list-disc list-inside">
-                            <li>Machine Learning Operations</li>
-                            <li>Cloud Architectures</li>
-                            <li>System Designs</li>
-                            <li>SotA Software Frameworks</li>
-                        </ul>
                     </div>
                 </div>
                 <div className="px-4">
@@ -118,6 +108,16 @@ export default function Member({ filteredMember }) {
                         <h2 className="text-3xl font-bold">Introduction</h2>
                         <p>{filteredMember.brief_intro}</p>
                     </div>
+                    {filteredMember.interests.length > 0 ? (
+                        <div className="flex flex-wrap justify-center flex-col">
+                            <h2 className="text-2xl font-bold">Interests</h2>
+                            <ul className="list-disc list-inside">
+                                {filteredMember.interests.map((interest) => (
+                                    <li>{interest}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </Layout>

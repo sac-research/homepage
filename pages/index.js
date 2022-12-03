@@ -1,84 +1,65 @@
-import Layout from "../components/Layout";
+import { useRouter } from "next/router";
+import Layout from "../components/Layouts/Layout";
 import SEO from "../components/SEO";
 import { getGlobalData } from "../utils/global-data.js";
-import { useEffect, useRef } from "react";
-
-import { pubs } from "../data/publications";
-
-function CameraController() {
-    const { camera, gl } = useThree();
-
-    useEffect(() => {
-        const controls = new OrbitControls(camera, gl.domElement);
-        controls.minDistance = 3;
-        controls.maxDistance = 20;
-        
-        return () => {
-            controls.dispose();
-        };
-    }, [camera, gl]);
-    return null;
-}
-
-function LatestPublicationCard({ pub }) { 
-    return <div className="w-[500px] h-auto rounded-sm shadow-md p-2">
-        <h3 className="font-bold">{pub.title}</h3>
-        <p>{pub.authors}</p>
-        <p>{pub.journal}</p>
-        <p>{pub.pub_year}</p>
-        <p>{pub.topic}</p>
-        <p>{pub.subtopic}</p>
-    </div>
-}
 
 export default function Home({ globalData }) {
-    const icosaLoop = useRef();
-
-    const latestPubs = pubs["Middleware and Platforms"]["Streaming Processing Middleware"]
-
-    useEffect(() => { 
-        // set localstorage theme according to global preference
-        const theme = localStorage.getItem("theme");
-        if (theme) {
-            localStorage.setItem("theme", theme);
-        } else {
-            localStorage.setItem("theme", "dark");
-        }
-    });
+    const router = useRouter();
 
     return (
         <Layout>
             <SEO title={globalData.siteName} description={globalData.description}></SEO>
-            <div className="flex flex-col justify-center items-center">
-                <div className="m-8 w-4/5">
-                    <div className="w-full justify-center">
-                        <h2 className="text-center text-4xl font-extralight">
-                            Software System Architecture in Cloud Computing
+            <div className="p-2 md:mt-4 flex h-64 justify-center items-center">
+                <div>
+                    <h1 className="text-5xl p-2 text-center bg-gradient-to-r text-transparent bg-clip-text from-green-400 via-cyan-300 to-violet-400 animate-text">
+                        Software System Architecture in Cloud Computing
+                    </h1>
+                </div>
+            </div>
+            <div className="flex justify-center flex-wrap text-xl">
+                <div className="card w-[28rem] bg-base-100 image-full shadow-xl m-2">
+                    <figure>
+                        <img
+                            src="/assets/theme-1.jpg"
+                            alt="applied machine learning for data intensive computing"
+                        />
+                    </figure>
+                    <div className="card-body space-y-2">
+                        <h2 className="card-title text-primary text-2xl inline-block text-center w-full bg-base-200 p-1 rounded-lg">
+                            Research Theme 1
                         </h2>
+                        <p>Applied Machine Learning for Data Intensive Computing</p>
+                        <div className="card-actions justify-end">
+                            <button
+                                onClick={() => {
+                                    router.push("/themes/applied-ml");
+                                }}
+                                className="btn btn-primary"
+                            >
+                                Learn more
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div className="flex flex-wrap justify-center space-x-4 items-center px-12 w-4/5">
-                    <div>
-                        <p>
-                            {
-                                "Our research endeavours on designing adaptive software components, architecture framework and analysis method to scale data intensive distributed systems, through modeling software architecture; quantifying the system's characteristics using statistical models; predicting the system's quality attributes and devising system platforms. "
-                            }
-                        </p>
-                        <br></br>
-                        <p>
-                            {
-                                "Current projects investigate mechanisms to improve the scalability and reliability of MapReduce Framework and Stream Processing Middleware to process incremental data analysis."
-                            }
-                        </p>
-                    </div>
-                </div>
-                <div className="mt-8 w-4/5">
-                    <h2 className="text-center text-4xl font-extralight mb-2">Latest Publications</h2>
-                    <div className="flex items-center justify-center flex-wrap space-x-4">
-                        {/* {console.log(latestPubs)} */}
-                        {latestPubs.map((pub, idx) => (
-                            <LatestPublicationCard key={idx} pub={pub}></LatestPublicationCard>
-                        ))}
+                <div className="card w-[28rem] bg-base-100 image-full shadow-xl m-2">
+                    <figure>
+                        <img src="/assets/theme-2.jpg" alt="Explainability for responsible A.I." />
+                    </figure>
+                    <div className="card-body space-y-2">
+                        <h2 className="card-title text-primary text-2xl inline-block text-center w-full bg-base-200 p-1 rounded-lg">
+                            Research Theme 2
+                        </h2>
+                        <p>Explainability for Responsible AI</p>
+                        <div className="card-actions justify-end">
+                            <button
+                                onClick={() => {
+                                    router.push("/themes/xai");
+                                }}
+                                className="btn btn-primary"
+                            >
+                                Learn more
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

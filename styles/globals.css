@@ -8,16 +8,8 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: Fira Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-        Cantarell, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #1e90ff;
+    font-family: Inter, Fira Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 * {

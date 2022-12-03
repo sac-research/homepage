@@ -1,36 +1,22 @@
-import SEO from "../components/SEO";
-import Layout from "../components/Layout";
-import { getGlobalData } from "../utils/global-data";
-import { events } from "../data/events";
-
-function eventsMapping() {
-    return events.map((event, index) => (
-        <div className="my-2" key={index}>
-            <h2 className="text-2xl mb-2 font-bold text-emerald-500">
-                {event.date}, {event.year} | {event.title}
-            </h2>
-            {event.description.map((d, index) => (
-                <p className="text-black dark:text-slate-300" key={index}>
-                    {index == 0 ? (
-                        <>
-                            &emsp; {d} <br />{" "}
-                        </>
-                    ) : (
-                        d
-                    )}
-                </p>
-            ))}
-        </div>
-    ));
-}
+import Layout from "../components/Layouts/Layout";
 
 export default function Events() {
-    const globalData = getGlobalData();
     return (
         <Layout>
-            <SEO title="SAC | Events" description={globalData.description}></SEO>
-            <div className="sm:mx-64 sm:my-12 flex flex-col mt-8 justify-center">
-                {eventsMapping()}
+            <div className="flex flex-col space-y-4">
+                <h1 className="text-4xl text-primary">Events</h1>
+                <div className="">
+                    <h1 className="text-2xl text-info">Collaborations</h1>
+                    <p>To be added</p>
+                </div>
+                <div className="">
+                    <h1 className="text-2xl text-info">Conferences</h1>
+                    <p>To be added</p>
+                </div>
+                <div className="">
+                    <h1 className="text-2xl text-info">Workshops</h1>
+                    <p>To be added</p>
+                </div>
             </div>
         </Layout>
     );

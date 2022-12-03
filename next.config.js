@@ -6,8 +6,8 @@ const nextConfig = {
         extend: {},
     },
     images: {
-    unoptimized: true,
-  },
+        unoptimized: true,
+    },
 };
 
 const withTM = require("next-transpile-modules")(["three"]);
@@ -18,7 +18,6 @@ module.exports = withTM(
             ignoreDuringBuilds: true,
         },
         output: "standalone",
-        
     },
 
     nextConfig

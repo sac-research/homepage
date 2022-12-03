@@ -21,6 +21,7 @@ export default function Nav() {
                     src={logo}
                     height={40}
                     width={55}
+                    unoptimized={true}
                 ></Image>
                 <a
                     href="/"

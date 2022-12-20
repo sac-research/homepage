@@ -1,8 +1,15 @@
 /**
+ *
+ * @TODO
+ * Implement scraping from Github avatar prior to using static assets.
+ *
+**/
+
+/**
  * Represents a member of SAC group
  *
  * @contructor
- * @param {int} key - auto-regenerated upon load, defaults to 0
+ * @param {int} key - auto-regenerated upon load, default: 0
  * @param {string} honorific - { Ms. | Mr. | Dr. | Prof. }
  * @param {string} firstName - First name, Western style order
  * @param {string} midName - Middle name (optional)
@@ -18,6 +25,7 @@
  * @param {string} photo - Avatar of the member, e.g. anhhhoangnguyen.jpeg, default: placeholder.jpg
  * @param {string} institution - The primary affiliation of the member, default: Concordia University
  * @param {string} location - The geographical entity the member primary resides in, default: Montreal, QC. Canada
+ * @param {[string]} interests - Member's research interests.
  * @returns {memberObject} Member object with all the above attributes
  *
  */

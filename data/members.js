@@ -1,19 +1,25 @@
 /**
+ * Represents a member of SAC group
  *
- * @param {int} key 1
- * @param {string} honorific
- * @param {string} firstName Anh
- * @param {string} midName Hoang
- * @param {string} lastName Nguyen
- * @param {string} role Undergraduate Research Assistant
- * @param {string} brief_intro I am a full-stack software developer with focus in DevOps and SRE with interests in cloud architectures, system designs, and applied machine learning.
- * @param {string} project (optional) empty string by default
- * @param {string} social https://linkedin.com/in/aaanh
- * @param {string} homepage https://hoanganh.dev
- * @param {string} scholarPage (optional) empty string by default
- * @param {string} type faculty | graduate | undergraduate | visitor
- * @param {string} photo <name>.fileType
+ * @contructor
+ * @param {int} key - auto-regenerated upon load, defaults to 0
+ * @param {string} honorific - { Ms. | Mr. | Dr. | Prof. }
+ * @param {string} firstName - First name, Western style order
+ * @param {string} midName - Middle name (optional)
+ * @param {string} lastName - Last name, Western style order
+ * @param {string} role - Role of the member, e.g. Research Assistant, Project Lead, Developer, etc.
+ * @param {string} brief_intro - Brief introduction in 1-3 sentences
+ * @param {[string]} project - Array of projects to which the member contributes
+ * @param {string} linkedIn - LinkedIn URL, e.g. https://linkedin.com/in/aaanh
+ * @param {string} googleScholar - Google Scholar URL
+ * @param {string} github - Github Profile URL, e.g. https://github.com/aaanh
+ * @param {string} homepage - Member's personal website, e.g. https://aaanh.ca
+ * @param {string} type { faculty | graduate | undergraduate | visitor }
+ * @param {string} photo - Avatar of the member, e.g. anhhhoangnguyen.jpeg, default: placeholder.jpg
+ * @param {string} institution - The primary affiliation of the member, default: Concordia University
+ * @param {string} location - The geographical entity the member primary resides in, default: Montreal, QC. Canada
  * @returns {memberObject} Member object with all the above attributes
+ *
  */
 function createMember({
     key = 0,
@@ -23,7 +29,7 @@ function createMember({
     lastName = "",
     role = "",
     brief_intro = "",
-    project = "",
+    project = [],
     linkedIn = "",
     googleScholar = "",
     github = "",

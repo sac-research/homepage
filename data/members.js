@@ -69,25 +69,7 @@ function createMember({
     };
 }
 
-const professorIntroduction = (
-    <>
-        <h3 className="text-black font-normal list-disc">Research Areas</h3>
-        <ul className="list-disc list-inside">
-            <li>
-                Distributed Computing: Middleware; Cloud Computing; Distributed Architectures;
-                Performance Modeling, Analysis and Evaluation; Service-oriented Computing
-            </li>
-            <li>
-                Software Engineering: Software Architecture; Model Driven Development; Embeded, and
-                Cyber-physical systems
-            </li>
-            <li>
-                Web-Enabled Applications and Services: eScience; Scientific Workflow; Business
-                Processes
-            </li>
-        </ul>
-    </>
-);
+
 
 export const members = [
     createMember({
@@ -387,23 +369,9 @@ export const members = [
             "PhD Candidate, Unversity of New South Wales, Australia & National ICT Australia (NICTA)",
         type: "visitor",
     }),
-    // createMember({
-    //     key: "",
-    //     honorific: "",
-    //     firstName: "",
-    //     midName: "",
-    //     lastName: "",
-    //     role: "",
-    //     brief_intro: "",
-    //     project: [""],
-    //     type: "",
-    //     homepage: "",
-    //     googleScholar: "",
-    //     linkedIn: "",
-    //     photo:"",
-    // }),
 ];
 
 export default function dataMembers() {
     return members;
 }
+

@@ -22,6 +22,7 @@ function createPub({
     doi = "",
 } = {}) {
     return {
+        authors,
         title,
         journal,
         conference,

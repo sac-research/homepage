@@ -1,6 +1,6 @@
 import SEO from "../../components/SEO";
 import { getGlobalData } from "../../utils/global-data";
-import { projects } from "../../data/archive_projects";
+import { projects } from "../../data/archive/projects";
 import Layout from "../../components/Layouts/Layout";
 
 const prospectiveProjects = [

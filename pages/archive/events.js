@@ -1,7 +1,7 @@
 import SEO from "../../components/SEO";
 import Layout from "../../components/Layouts/Layout";
 import { getGlobalData } from "../../utils/global-data";
-import { events } from "../../data/archive_events";
+import { events } from "../../data/archive/events";
 
 function eventsMapping() {
     return events.map((event, index) => (

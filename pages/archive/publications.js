@@ -1,7 +1,7 @@
 import SEO from "../../components/SEO";
 import Layout from "../../components/Layouts/Layout";
 import { useState } from "react";
-import { pubs } from "../../data/archive_publications";
+import { pubs } from "../../data/archive/publications";
 
 const Sidebar = ({ topics, years, topicCallback, yearCallback }) => {
     return (

@@ -5,6 +5,8 @@ Upstream preview: https://sac-home.vercel.app
 
 This is the source code for SAC Research Group homepage.
 
+For members, add your information by following the instructions in [CONTRIBUTING](/CONTRIBUTING).
+
 The group is based at Concordia University, Montreal, QC.
 
 ## Requirements

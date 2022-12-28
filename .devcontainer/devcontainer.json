@@ -3,7 +3,11 @@
   "forwardPorts": [3000],
   "customizations": {
     "vscode": {
-      "extensions": ["swellaby.node-pack", "formulahendry.auto-rename-tag", "wix.vscode-import-cost"]
+      "extensions": [
+        "swellaby.node-pack",
+        "formulahendry.auto-rename-tag",
+        "wix.vscode-import-cost"
+      ]
     }
   }
 }

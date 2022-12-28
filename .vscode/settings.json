@@ -1,8 +1,8 @@
 {
-    "discord.enabled": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "latex.formatter.columnLimit": 100
+  "discord.enabled": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "latex.formatter.columnLimit": 100
 }

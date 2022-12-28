@@ -1,1 +1,3 @@
-export default function Publications() { return <div></div> };
+export default function Publications() {
+  return <div></div>;
+}

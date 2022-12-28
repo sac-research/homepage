@@ -32,7 +32,11 @@ export const members = [
 ]
 ```
 
-**Note:** It is recommended that you use backticks for string literals.
+**Note:** It is recommended that you use backticks for string literals and multi-line fields (e.g. `brief_intro`).
+
+Your profile photo will be grabbed directly from Github if you provide your Github profile. It takes precedence over static asset.
+
+Else, add your photo in [/public/members-photos/{first}{last}.{jpg | png}](/public/members-photos) and put the link accordingly in the data file.
 
 ## Project details
 
